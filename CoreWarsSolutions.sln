@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31825.309
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "CoreWars.Engine.SharedProject", "CoreWars.Engine.SharedProject\CoreWars.Engine.SharedProject.shproj", "{1C52D7DC-FFCD-47FF-89F9-B1A6C502DE20}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoreWars.Engine.TestProject", "CoreWars.Engine.TestProject\CoreWars.Engine.TestProject.csproj", "{31575916-F335-48C8-BDE5-7E798F7CBA8F}"
+EndProject
+Global
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		CoreWars.Engine.SharedProject\CoreWars.Engine.SharedProject.projitems*{1c52d7dc-ffcd-47ff-89f9-b1a6c502de20}*SharedItemsImports = 13
+		CoreWars.Engine.SharedProject\CoreWars.Engine.SharedProject.projitems*{31575916-f335-48c8-bde5-7e798f7cba8f}*SharedItemsImports = 5
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{31575916-F335-48C8-BDE5-7E798F7CBA8F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{31575916-F335-48C8-BDE5-7E798F7CBA8F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31575916-F335-48C8-BDE5-7E798F7CBA8F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{31575916-F335-48C8-BDE5-7E798F7CBA8F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3F0C4ACC-605F-425B-A30C-FD2770E8547E}
+	EndGlobalSection
+EndGlobal
