@@ -1,9 +1,9 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace CoreWars.Engine.TestProject
+namespace CoreWars.Engine
 {
     [TestClass]
-    public class UnitTest1
+    public class SmokeUnitTest
     {
         [TestMethod]
         public void TestMethod1()

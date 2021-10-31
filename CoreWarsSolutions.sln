@@ -7,6 +7,16 @@ Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "CoreWars.Engine.SharedProje
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoreWars.Engine.TestProject", "CoreWars.Engine.TestProject\CoreWars.Engine.TestProject.csproj", "{31575916-F335-48C8-BDE5-7E798F7CBA8F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoreWars.Engine.ClassLibrary", "CoreWars.Engine.ClassLibrary\CoreWars.Engine.ClassLibrary.csproj", "{26F31848-7DAD-480E-8015-282263C02D4B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CoreWars.Engine", "CoreWars.Engine", "{283D4E51-AAC6-4FBB-A35A-930C83053B0B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{950E8B46-DC12-4441-9A6A-31308E7716D3}"
+	ProjectSection(SolutionItems) = preProject
+		.gitattributes = .gitattributes
+		.gitignore = .gitignore
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		CoreWars.Engine.SharedProject\CoreWars.Engine.SharedProject.projitems*{1c52d7dc-ffcd-47ff-89f9-b1a6c502de20}*SharedItemsImports = 13
@@ -21,9 +31,18 @@ Global
 		{31575916-F335-48C8-BDE5-7E798F7CBA8F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{31575916-F335-48C8-BDE5-7E798F7CBA8F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{31575916-F335-48C8-BDE5-7E798F7CBA8F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{26F31848-7DAD-480E-8015-282263C02D4B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{26F31848-7DAD-480E-8015-282263C02D4B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{26F31848-7DAD-480E-8015-282263C02D4B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{26F31848-7DAD-480E-8015-282263C02D4B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{1C52D7DC-FFCD-47FF-89F9-B1A6C502DE20} = {283D4E51-AAC6-4FBB-A35A-930C83053B0B}
+		{31575916-F335-48C8-BDE5-7E798F7CBA8F} = {283D4E51-AAC6-4FBB-A35A-930C83053B0B}
+		{26F31848-7DAD-480E-8015-282263C02D4B} = {283D4E51-AAC6-4FBB-A35A-930C83053B0B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3F0C4ACC-605F-425B-A30C-FD2770E8547E}

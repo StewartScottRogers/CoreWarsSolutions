@@ -9,5 +9,6 @@
     <Import_RootNamespace>CoreWars.Engine</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)ExecutionEngine.cs" />
   </ItemGroup>
 </Project>
