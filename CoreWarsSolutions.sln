@@ -20,8 +20,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentation", "Documentation", "{97AFB124-CB8D-42B1-8CEF-49A0F100D9D8}"
 	ProjectSection(SolutionItems) = preProject
+		Documentation\Core War-Redcode.url = Documentation\Core War-Redcode.url
 		Documentation\icws88.txt = Documentation\icws88.txt
-		Documentation\Redcode Syntax highlighting - Visual Studio Marketplace.url = Documentation\Redcode Syntax highlighting - Visual Studio Marketplace.url
+		Redcode = Redcode
+		Documentation\Redcode Syntax highlighting .url = Documentation\Redcode Syntax highlighting .url
 	EndProjectSection
 EndProject
 Global
