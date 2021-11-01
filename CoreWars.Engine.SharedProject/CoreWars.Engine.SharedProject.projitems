@@ -10,5 +10,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)ExecutionEngine.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extentions\ByteExtentions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)MemoryCore.cs" />
   </ItemGroup>
 </Project>
