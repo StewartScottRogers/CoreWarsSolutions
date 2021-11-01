@@ -18,6 +18,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		StewartScottRogers · GitHub.url = StewartScottRogers · GitHub.url
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentation", "Documentation", "{97AFB124-CB8D-42B1-8CEF-49A0F100D9D8}"
+	ProjectSection(SolutionItems) = preProject
+		Documentation\icws88.txt = Documentation\icws88.txt
+		Documentation\Redcode Syntax highlighting - Visual Studio Marketplace.url = Documentation\Redcode Syntax highlighting - Visual Studio Marketplace.url
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		CoreWars.Engine.SharedProject\CoreWars.Engine.SharedProject.projitems*{1c52d7dc-ffcd-47ff-89f9-b1a6c502de20}*SharedItemsImports = 13
@@ -44,6 +50,7 @@ Global
 		{1C52D7DC-FFCD-47FF-89F9-B1A6C502DE20} = {283D4E51-AAC6-4FBB-A35A-930C83053B0B}
 		{31575916-F335-48C8-BDE5-7E798F7CBA8F} = {283D4E51-AAC6-4FBB-A35A-930C83053B0B}
 		{26F31848-7DAD-480E-8015-282263C02D4B} = {283D4E51-AAC6-4FBB-A35A-930C83053B0B}
+		{97AFB124-CB8D-42B1-8CEF-49A0F100D9D8} = {283D4E51-AAC6-4FBB-A35A-930C83053B0B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3F0C4ACC-605F-425B-A30C-FD2770E8547E}
