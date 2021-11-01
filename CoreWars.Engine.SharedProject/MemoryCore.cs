@@ -15,10 +15,10 @@ namespace CoreWars.Engine {
         }
 
         public byte Read(int memoryIndex) 
-            => Buffer[SGetafeMemoryIndex(memoryIndex)];
+            => Buffer[GetSafeBufferIndex(memoryIndex)];
 
         public void Write(int memoryIndex, byte memoryByte) =>
-            Buffer[SGetafeMemoryIndex(memoryIndex)] = memoryByte;
+            Buffer[GetSafeBufferIndex(memoryIndex)] = memoryByte;
         
         public int Size { get => Buffer.Length; }
 
@@ -34,6 +34,6 @@ namespace CoreWars.Engine {
             return stringBuilder.ToString();
         }
 
-        private int SGetafeMemoryIndex(int memoryIndex) => (memoryIndex % Buffer.Length);
+        private int GetSafeBufferIndex(int memoryIndex) => (memoryIndex % Buffer.Length);
     }
 }

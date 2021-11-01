@@ -5,9 +5,9 @@ VisualStudioVersion = 17.0.31825.309
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "CoreWars.Engine.SharedProject", "CoreWars.Engine.SharedProject\CoreWars.Engine.SharedProject.shproj", "{1C52D7DC-FFCD-47FF-89F9-B1A6C502DE20}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoreWars.Engine.TestProject", "CoreWars.Engine.TestProject\CoreWars.Engine.TestProject.csproj", "{31575916-F335-48C8-BDE5-7E798F7CBA8F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoreWars.Engine.TestProject", "CoreWars.Engine.TestProject\CoreWars.Engine.TestProject.csproj", "{31575916-F335-48C8-BDE5-7E798F7CBA8F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoreWars.Engine.ClassLibrary", "CoreWars.Engine.ClassLibrary\CoreWars.Engine.ClassLibrary.csproj", "{26F31848-7DAD-480E-8015-282263C02D4B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoreWars.Engine.ClassLibrary", "CoreWars.Engine.ClassLibrary\CoreWars.Engine.ClassLibrary.csproj", "{26F31848-7DAD-480E-8015-282263C02D4B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CoreWars.Engine", "CoreWars.Engine", "{283D4E51-AAC6-4FBB-A35A-930C83053B0B}"
 EndProject
