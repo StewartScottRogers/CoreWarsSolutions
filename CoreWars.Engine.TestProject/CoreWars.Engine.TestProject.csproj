@@ -12,10 +12,18 @@
   <ItemGroup>
     <None Remove="RedCodePrograms\Example000.redcode.txt" />
     <None Remove="RedCodePrograms\Example001.redcode.txt" />
+    <None Remove="RedCodePrograms\Example002.redcode.txt" />
+    <None Remove="RedCodePrograms\Example003.redcode.txt" />
+    <None Remove="RedCodePrograms\Example004.redcode.txt" />
+    <None Remove="RedCodePrograms\Example005.redcode.txt" />
   </ItemGroup>
 
   <ItemGroup>
     <EmbeddedResource Include="RedCodePrograms\Example000.redcode.txt" />
+    <EmbeddedResource Include="RedCodePrograms\Example005.redcode.txt" />
+    <EmbeddedResource Include="RedCodePrograms\Example004.redcode.txt" />
+    <EmbeddedResource Include="RedCodePrograms\Example003.redcode.txt" />
+    <EmbeddedResource Include="RedCodePrograms\Example002.redcode.txt" />
     <EmbeddedResource Include="RedCodePrograms\Example001.redcode.txt" />
   </ItemGroup>
 

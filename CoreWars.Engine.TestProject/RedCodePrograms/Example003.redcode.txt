@@ -1,0 +1,23 @@
+﻿;
+step    equ     #3364
+
+trap    dat     0,      1       ;0
+        dat     0,      0
+dest    dat     0,      0
+        dat     0,      0
+        dat     0,      0       ;0
+
+;the use of postincrement allow us to put dest before our code
+
+loop    add.ab  step,   ptr
+ptr     jmz     loop,   trap
+        mov.b   ptr,    dest
+cnt     mov     #7,     0       ;0
+kill    mov     bomb,   >dest
+        djn     kill,   cnt
+        jmn     loop,   trap
+bomb    spl     #0,     0       ;0
+        mov     2,      >ptr
+        djn.f   -1,     {ptr
+        dat     -5,     #15
+end loop
