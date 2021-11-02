@@ -22,14 +22,23 @@ namespace CoreWars.Engine {
         }
 
         [TestMethod]
-        public void Display_RedCode_Examples() {
+        public void Display_Loading_And_Tokenizing_Of_RedCode_Example000() {
             var program000 = RedCodeProgramStorage.GetExample000();
             Console.WriteLine(program000.ProgramName);
             Console.WriteLine(program000.ProgramCode);
 
+
+
+        }
+
+        [TestMethod]
+        public void Display_Loading_And_Tokenizing_Of_RedCode_Example001() {
             var program001 = RedCodeProgramStorage.GetExample001();
             Console.WriteLine(program001.ProgramName);
             Console.WriteLine(program001.ProgramCode);
+
+
+
         }
     }
 }
