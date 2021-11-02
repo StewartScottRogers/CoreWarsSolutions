@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 using CoreWars.Engine.RedCodePrograms;
@@ -49,16 +50,25 @@ namespace CoreWars.Engine {
 
 
 
-        private void Display_Loading_And_Tokenizing_Of_RedCode((string Name, string Code) program) {
-            Console.WriteLine(program.Name);
-            Console.WriteLine(program.Code);
+        private void Display_Loading_And_Tokenizing_Of_RedCode((string Name, IEnumerable<string> Code) program) {
 
-            Console.WriteLine(new string('-',80));
-
-            string[] lines = program.Code.PreProcess().ToArray();
-            Console.WriteLine(string.Join(System.Environment.NewLine, lines));
+            string programName = program.Name;
+            IEnumerable<string> programCode = program.Code;
 
             Console.WriteLine(new string('-', 80));
+            Console.WriteLine($"Program Name: '{programName}' Raw.");
+            Console.WriteLine(new string('-', 80));
+            Console.WriteLine(string.Join(Environment.NewLine, programCode));
+            Console.WriteLine(new string('=', 80));
+
+            Console.WriteLine(new string('-', 80));
+            Console.WriteLine($"Program Name: '{programName}' Pre Processed.");
+            Console.WriteLine(new string('-', 80));
+
+            IEnumerable<string> lines = programCode.PreProcess();
+            Console.WriteLine(string.Join(Environment.NewLine, lines));
+
+            Console.WriteLine(new string('=', 80));
 
         }
     }
