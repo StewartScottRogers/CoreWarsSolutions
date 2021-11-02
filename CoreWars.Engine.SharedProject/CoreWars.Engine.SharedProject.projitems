@@ -10,13 +10,15 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)Attributes\AddressingModeAttribute.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Attributes\SpecialCommandAttribute.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ExecutionEngine.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extentions\ByteExtentions.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Attributes\InstructionAttribute.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Attributes\OpcodeAttribute.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)MemoryCore.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)RedCodeAddressingModes.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)RedCodeCompiler.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)RedCodeInstructions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)RedCodeOpcodes.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)RedCodeLexer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)RedCodeSpecialCommands.cs" />
   </ItemGroup>
 </Project>
