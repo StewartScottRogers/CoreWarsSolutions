@@ -1,1 +1,5 @@
-﻿
+﻿; "Imp", A. K. Dewdney
+        mov    0,         1
+; Alternate versions using redcode-94 instruction modifier semantics:
+        mov.i  #8,        1 ; A-field can store arbitrary data.
+        mov.i  #1,       *0 ; Copies itself via A-field indirection.

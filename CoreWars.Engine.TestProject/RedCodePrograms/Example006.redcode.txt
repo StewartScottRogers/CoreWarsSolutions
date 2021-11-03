@@ -1,0 +1,5 @@
+﻿; "Dwarf", A. K. Dewdney
+        mov   4,          @4 ; Move the bomb to the location pointed to by the bomb. (B-indirect.)
+        add   #4,         3  ; Immediate add adds the immediate A-operand to the B-field of the cell pointed to by the B-operand.
+        jmp   -2             ; Jump back two steps (to the MOV)
+        dat   #4             ; The bomb. After enough cycles, dwarf will overwrite the bomb with itself, harmlessly. It then restarts the bombing run.

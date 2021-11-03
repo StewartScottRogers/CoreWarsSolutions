@@ -1,1 +1,13 @@
-﻿
+﻿; Redcode Hello World, John Metcalf
+
+write   sts.a  hello,     0
+        sts.b  }write,    0
+        djn    write,     #7
+ 
+hello   dat    72,        101 ; He
+        dat    108,       108 ; ll
+        dat    111,       44  ; o,
+        dat    32,        87  ;  W
+        dat    111,       114 ; or
+        dat    108,       100 ; ld
+        dat    33,        10  ; !\n

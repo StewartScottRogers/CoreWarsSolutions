@@ -48,6 +48,10 @@ namespace CoreWars.Engine {
         public void Display_Loading_And_Tokenizing_Of_RedCode_Example005()
           => Display_Loading_And_Tokenizing_Of_RedCode(RedCodeProgramStorage.GetExample005());
 
+        [TestMethod]
+        public void Display_Loading_And_Tokenizing_Of_RedCode_Example006()
+          => Display_Loading_And_Tokenizing_Of_RedCode(RedCodeProgramStorage.GetExample006());
+
 
 
         private void Display_Loading_And_Tokenizing_Of_RedCode((string Name, IEnumerable<(int lineNumber, string line)> Codelines) program) {

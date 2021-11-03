@@ -11,6 +11,7 @@ namespace CoreWars.Engine.RedCodePrograms {
         public static (string Name, IEnumerable<(int lineNumber, string line)> Codelines) GetExample003() => GetEmbeddedProgram("Example003.redcode");
         public static (string Name, IEnumerable<(int lineNumber, string line)> Codelines) GetExample004() => GetEmbeddedProgram("Example004.redcode");
         public static (string Name, IEnumerable<(int lineNumber, string line)> Codelines) GetExample005() => GetEmbeddedProgram("Example005.redcode");
+        public static (string Name, IEnumerable<(int lineNumber, string line)> Codelines) GetExample006() => GetEmbeddedProgram("Example006.redcode");
 
 
         private static (string Name, IEnumerable<(int lineNumber, string line)> Codelines) GetEmbeddedProgram(string programName) {

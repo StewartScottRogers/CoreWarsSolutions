@@ -7,77 +7,77 @@ namespace CoreWars.Engine {
         [Opcode(
             symbol: "DAT",
             description: "data (kills the process). - DAT A B: Remove executing process from process queue.",
-            example: "Example: "
+            example: "Example: DAT"
         )]
         DAT = 1,
 
         [Opcode(
             symbol: "MOV",
             description: "move (copies data from one address to another). - MOV A B: move A to B.",
-            "Example: "
+            "Example: MOV A B"
         )]
         MOV = 2,
 
         [Opcode(
             symbol: "ADD",
             description: "add (adds one number to another). - ADD A B: add A to B.",
-            example: "Example: "
+            example: "Example: ADD A B"
         )]
         ADD = 3,
 
         [Opcode(
             symbol: "SUB",
             description: "subtract (subtracts one number from another). - SUB A B: subtract A from B.",
-            example: "Example: "
+            example: "Example: SUB A B"
         )]
         SUB = 4,
 
         [Opcode(
             symbol: "JMP",
             description: "jump (continues execution from another address). - JMP A B: jump to A.",
-            example: "Example: "
+            example: "Example: JMP A B"
         )]
         JMP = 5,
 
         [Opcode(
             symbol: "JMZ",
             description: "jump if zero (tests a number and jumps to an address if it's 0). - JMZ A B: jump to A if B is zero.",
-            example: "Example: "
+            example: "Example: JMZ A B"
         )]
         JMZ = 6,
 
         [Opcode(
             symbol: "JMN",
-            description: "jump if not zero (tests a number and jumps if it isn't 0). - JMN A B: jump to A  if  B  is not zero.",
-            example: "Example: "
+            description: "jump if not zero (tests a number and jumps if it isn't 0). - JMN A B: jump to A if B  is not zero.",
+            example: "Example: JMN A B"
         )]
         JMN = 7,
 
         [Opcode(
             symbol: "CMP",
             description: "compare (same as SEQ). - CMP A B: if A equals B, then skip the next instruction.",
-            example: "Example: "
+            example: "Example: CMP A B"
         )]
         CMP = 8,
 
         [Opcode(
             symbol: "SLT",
             description: "skip if lower than (compares two values, and skips the next instruction if the first is lower than the second). - SLT A B: if A is less than B then skip next instruction.",
-            example: "Example: "
+            example: "Example: SLT A B"
         )]
         SLT = 9,
 
         [Opcode(
             symbol: "DJN",
             description: "decrement and jump if not zero (decrements a number by one, and jumps unless the result is 0). - DJN  A B: decrement B; if B is not zero then jump to A",
-            example: "Example: "
+            example: "Example: DNJ A B"
         )]
         DJN = 10,
 
         [Opcode(
             symbol: "SPL",
             description: "split (starts a second process at another address). place A in the process queue. - A B: place A  in  the process queue",
-            example: "Example: "
+            example: "Example: SPL A"
         )]
         SPL = 11,
 
