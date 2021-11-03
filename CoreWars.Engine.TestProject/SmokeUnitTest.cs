@@ -66,7 +66,9 @@ namespace CoreWars.Engine {
             Console.WriteLine($"Program Name: '{program.Name}' Pre Processed.");
             Console.WriteLine(new string('-', 80));
 
-            IEnumerable<(int lineNumber, string line)> preProcessCodelines = codelines.PreProcess();      
+            IEnumerable<(int LineNumber, string Label, string Opcode, string RegisterA, string RegisterB)> preProcessCodelines 
+                = codelines.ParseCodeLines();
+            
             Console.WriteLine(string.Join(Environment.NewLine, preProcessCodelines));
             Console.WriteLine(new string('=', 80));
 
