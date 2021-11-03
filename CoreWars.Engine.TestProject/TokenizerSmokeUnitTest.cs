@@ -48,7 +48,7 @@ namespace CoreWars.Engine {
             Console.WriteLine(new string('-', 80));
             Console.WriteLine($"Program Name: '{program.Name}' ParsedCodeLines.");
             Console.WriteLine(new string('-', 80));
-            IEnumerable<(int LineNumber, string Label, string Opcode, string RegisterA, string RegisterB)> parsedCodeLines
+            IEnumerable<(int LineNumber, string Label, string Command, string ParameterA, string ParameterB)> parsedCodeLines
                 = codelines.ParseCodeLines();
             Console.WriteLine(string.Join(Environment.NewLine, parsedCodeLines.ToLineString()));
             Console.WriteLine(new string('=', 80));

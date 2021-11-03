@@ -4,14 +4,14 @@ using System.Linq;
 namespace CoreWars.Engine {
     internal static class RedCodeTokenizer {
 
-        public static IEnumerable<(int LineNumber, string Label, string Opcode, string RegisterA, string RegisterB)> ParseCodeLines(this IEnumerable<(int lineNumber, string line)> codeLines)
+        public static IEnumerable<(int LineNumber, string Label, string Command, string ParameterA, string ParameterB)> ParseCodeLines(this IEnumerable<(int lineNumber, string line)> codeLines)
             => ProcessCodeLine(ProcessCodeLines(codeLines));
 
-        public static IEnumerable<string> ToLineString(this IEnumerable<(int LineNumber, string Label, string Opcode, string RegisterA, string RegisterB)> parsedCodeLines) {
-            yield return $"{"####",-6}  {"Label",-15} {"Opcode",-15} {"RegisterA",-15} {"RegisterB",-15}";
-            foreach ((int LineNumber, string Label, string Opcode, string RegisterA, string RegisterB) parsedCodeLine in parsedCodeLines) {
+        public static IEnumerable<string> ToLineString(this IEnumerable<(int LineNumber, string Label, string Command, string ParameterA, string ParameterB)> parsedCodeLines) {
+            yield return $"{"[####]",-6}  {"[Label]",-15} {"[Command]",-15} {"[ParameterA]",-15} {"[ParameterB]",-15}";
+            foreach ((int LineNumber, string Label, string Command, string ParameterA, string ParameterB) parsedCodeLine in parsedCodeLines) {
                 string lineNumber = $"{parsedCodeLine.LineNumber:0000}";
-                string text = $"{lineNumber,-6}  {parsedCodeLine.Label,-15} {parsedCodeLine.Opcode,-15} {parsedCodeLine.RegisterA,-15} {parsedCodeLine.RegisterB,-15}";
+                string text = $" {lineNumber,-6}  {parsedCodeLine.Label,-15} {parsedCodeLine.Command,-15} {parsedCodeLine.ParameterA,-15} {parsedCodeLine.ParameterB,-15}";
                 yield return text;
             }
         }
@@ -34,7 +34,7 @@ namespace CoreWars.Engine {
             }
         }
 
-        private static IEnumerable<(int LineNumber, string Label, string Opcode, string RegisterA, string RegisterB)> ProcessCodeLine(this IEnumerable<(int lineNumber, string line)> codeLines) {
+        private static IEnumerable<(int LineNumber, string Label, string Command, string ParameterA, string ParameterB)> ProcessCodeLine(this IEnumerable<(int lineNumber, string line)> codeLines) {
             foreach ((int lineNumber, string line) codeLine in codeLines) {
                 bool startsWithBlankSpace = codeLine.line.StartsWith(" ");
                 
@@ -51,9 +51,9 @@ namespace CoreWars.Engine {
                         LineNumber: codeLine.lineNumber,
 
                         Label: GetLinePart(lineParts, 3),
-                        Opcode: GetLinePart(lineParts, 2),
-                        RegisterA: GetLinePart(lineParts, 1),
-                        RegisterB: GetLinePart(lineParts, 0)
+                        Command: GetLinePart(lineParts, 2),
+                        ParameterA: GetLinePart(lineParts, 1),
+                        ParameterB: GetLinePart(lineParts, 0)
                    );
                 } else {
                     bool assignmentEQU = GetLinePart(lineParts, 1).ToUpper() == nameof(RedCodeSpecialCommands.EQU);
@@ -63,18 +63,18 @@ namespace CoreWars.Engine {
                             LineNumber: codeLine.lineNumber,
 
                             Label: string.Empty,
-                            Opcode: GetLinePart(lineParts, 1),
-                            RegisterA: GetLinePart(lineParts, 0),
-                            RegisterB: GetLinePart(lineParts, 2)
+                            Command: GetLinePart(lineParts, 1),
+                            ParameterA: GetLinePart(lineParts, 0),
+                            ParameterB: GetLinePart(lineParts, 2)
                        );
                     } else {
                         yield return (
                             LineNumber: codeLine.lineNumber,
 
                             Label: GetLinePart(lineParts, 3),
-                            Opcode: GetLinePart(lineParts, 2),
-                            RegisterA: GetLinePart(lineParts, 1),
-                            RegisterB: GetLinePart(lineParts, 0)
+                            Command: GetLinePart(lineParts, 2),
+                            ParameterA: GetLinePart(lineParts, 1),
+                            ParameterB: GetLinePart(lineParts, 0)
                         );
                     }
 
