@@ -50,26 +50,27 @@ namespace CoreWars.Engine {
 
 
 
-        private void Display_Loading_And_Tokenizing_Of_RedCode((string Name, IEnumerable<string> Code) program) {
+        private void Display_Loading_And_Tokenizing_Of_RedCode((string Name, IEnumerable<(int lineNumber, string line)> Codelines) program) {
 
-            string programName = program.Name;
-            IEnumerable<string> programCode = program.Code;
+            IEnumerable<(int lineNumber, string line)> codelines = program.Codelines;
 
             Console.WriteLine(new string('-', 80));
-            Console.WriteLine($"Program Name: '{programName}' Raw.");
+            Console.WriteLine($"Program Name: '{program.Name}' Raw.");
             Console.WriteLine(new string('-', 80));
-            Console.WriteLine(string.Join(Environment.NewLine, programCode));
+            Console.WriteLine(string.Join(Environment.NewLine, codelines));
             Console.WriteLine(new string('=', 80));
 
+            Console.WriteLine();
+
             Console.WriteLine(new string('-', 80));
-            Console.WriteLine($"Program Name: '{programName}' Pre Processed.");
+            Console.WriteLine($"Program Name: '{program.Name}' Pre Processed.");
             Console.WriteLine(new string('-', 80));
 
-            IEnumerable<string> lines = programCode.PreProcess();
-            Console.WriteLine(string.Join(Environment.NewLine, lines));
-
+            IEnumerable<(int lineNumber, string line)> preProcessCodelines = codelines.PreProcess();      
+            Console.WriteLine(string.Join(Environment.NewLine, preProcessCodelines));
             Console.WriteLine(new string('=', 80));
 
+          
         }
     }
 }
