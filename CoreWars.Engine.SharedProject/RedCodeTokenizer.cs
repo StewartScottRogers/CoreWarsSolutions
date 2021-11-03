@@ -36,14 +36,16 @@ namespace CoreWars.Engine {
 
         private static IEnumerable<(int LineNumber, string Label, string Opcode, string RegisterA, string RegisterB)> ProcessCodeLine(this IEnumerable<(int lineNumber, string line)> codeLines) {
             foreach ((int lineNumber, string line) codeLine in codeLines) {
-                var isLabled = !codeLine.line.StartsWith(" ");
-                if (isLabled) {
-                    string[] lineParts
-                                      = codeLine.line
-                                                  .Split(' ', System.StringSplitOptions.RemoveEmptyEntries)
-                                                      .Reverse()
-                                                          .ToArray();
+                var startsWithBlankSpace = codeLine.line.StartsWith(" ");
 
+                string[] lineParts
+                                     = codeLine.line
+                                                 .Split(' ', System.StringSplitOptions.RemoveEmptyEntries)
+                                                     .Reverse()
+                                                         .ToArray();
+
+                if (startsWithBlankSpace) {
+                   
                     yield return (
                         LineNumber: codeLine.lineNumber,
 
@@ -53,12 +55,7 @@ namespace CoreWars.Engine {
                         RegisterB: GetLinePart(lineParts, 0)
                    );
                 } else {
-                    string[] lineParts
-                  = codeLine.line
-                              .Split(' ', System.StringSplitOptions.RemoveEmptyEntries)
-                                  .Reverse()
-                                      .ToArray();
-
+           
                     yield return (
                         LineNumber: codeLine.lineNumber,
 
@@ -73,7 +70,7 @@ namespace CoreWars.Engine {
 
         private static string GetLinePart(string[] lineParts, int index) {
             if (lineParts.Length > index) {
-                string linePart = lineParts[index];
+                string linePart = lineParts[index].Trim();
                 if (linePart.EndsWith(","))
                     linePart = linePart.Substring(0, linePart.LastIndexOf(","));
                 return linePart;

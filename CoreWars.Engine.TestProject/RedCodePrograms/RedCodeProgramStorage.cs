@@ -5,22 +5,23 @@ using System.Reflection;
 namespace CoreWars.Engine.RedCodePrograms {
     internal static class RedCodeProgramStorage {
 
-        public static (string Name, IEnumerable<(int lineNumber, string line)> Codelines) GetExample000() => GetEmbeddedProgram("Example000.redcode");
-        public static (string Name, IEnumerable<(int lineNumber, string line)> Codelines) GetExample001() => GetEmbeddedProgram("Example001.redcode");
-        public static (string Name, IEnumerable<(int lineNumber, string line)> Codelines) GetExample002() => GetEmbeddedProgram("Example002.redcode");
-        public static (string Name, IEnumerable<(int lineNumber, string line)> Codelines) GetExample003() => GetEmbeddedProgram("Example003.redcode");
-        public static (string Name, IEnumerable<(int lineNumber, string line)> Codelines) GetExample004() => GetEmbeddedProgram("Example004.redcode");
-        public static (string Name, IEnumerable<(int lineNumber, string line)> Codelines) GetExample005() => GetEmbeddedProgram("Example005.redcode");
-        public static (string Name, IEnumerable<(int lineNumber, string line)> Codelines) GetExample006() => GetEmbeddedProgram("Example006.redcode");
+        public static (string Name, string Cotent, IEnumerable<(int lineNumber, string line)> Codelines) GetExample000() => GetEmbeddedProgram("Example000.redcode");
+        public static (string Name, string Cotent, IEnumerable<(int lineNumber, string line)> Codelines) GetExample001() => GetEmbeddedProgram("Example001.redcode");
+        public static (string Name, string Cotent, IEnumerable<(int lineNumber, string line)> Codelines) GetExample002() => GetEmbeddedProgram("Example002.redcode");
+        public static (string Name, string Cotent, IEnumerable<(int lineNumber, string line)> Codelines) GetExample003() => GetEmbeddedProgram("Example003.redcode");
+        public static (string Name, string Cotent, IEnumerable<(int lineNumber, string line)> Codelines) GetExample004() => GetEmbeddedProgram("Example004.redcode");
+        public static (string Name, string Cotent, IEnumerable<(int lineNumber, string line)> Codelines) GetExample005() => GetEmbeddedProgram("Example005.redcode");
+        public static (string Name, string Cotent, IEnumerable<(int lineNumber, string line)> Codelines) GetExample006() => GetEmbeddedProgram("Example006.redcode");
 
 
-        private static (string Name, IEnumerable<(int lineNumber, string line)> Codelines) GetEmbeddedProgram(string programName) {
+        private static (string Name, string Cotent, IEnumerable<(int lineNumber, string line)> Codelines) GetEmbeddedProgram(string programName) {
             var assembly = Assembly.GetExecutingAssembly();
             var resourceName = $"CoreWars.Engine.RedCodePrograms.{programName}.txt";
 
             using (Stream stream = assembly.GetManifestResourceStream(resourceName))
             using (StreamReader streamReader = new StreamReader(stream)) {
-                return (Name: programName, Codelines: streamReader.ReadToEnd().ToLines());
+                string content = streamReader.ReadToEnd();
+                return (Name: programName, Cotent: content, Codelines: content.ToLines());
             }
         }
 

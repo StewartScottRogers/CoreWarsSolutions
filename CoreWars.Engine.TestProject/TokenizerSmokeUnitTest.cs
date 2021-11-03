@@ -26,28 +26,34 @@ namespace CoreWars.Engine {
 
 
 
-        private void Display_Loading_And_Tokenizing_Of_RedCode((string Name, IEnumerable<(int lineNumber, string line)> Codelines) program) {
+        private void Display_Loading_And_Tokenizing_Of_RedCode((string Name, string Cotent, IEnumerable<(int lineNumber, string line)> Codelines) program) {
 
+            Console.WriteLine(new string('-', 80));
+            Console.WriteLine($"Program Name: '{program.Name}' Cotent.");
+            Console.WriteLine(new string('-', 80));
+            Console.WriteLine(program.Cotent);
+            Console.WriteLine(new string('=', 80));
+
+            Console.WriteLine();
+
+            Console.WriteLine(new string('-', 80));
+            Console.WriteLine($"Program Name: '{program.Name}' Codelines.");
+            Console.WriteLine(new string('-', 80));
             IEnumerable<(int lineNumber, string line)> codelines = program.Codelines;
-
-            Console.WriteLine(new string('-', 80));
-            Console.WriteLine($"Program Name: '{program.Name}' Raw.");
-            Console.WriteLine(new string('-', 80));
             Console.WriteLine(string.Join(Environment.NewLine, codelines));
             Console.WriteLine(new string('=', 80));
 
             Console.WriteLine();
 
             Console.WriteLine(new string('-', 80));
-            Console.WriteLine($"Program Name: '{program.Name}' Pre Processed.");
+            Console.WriteLine($"Program Name: '{program.Name}' ParsedCodeLines.");
             Console.WriteLine(new string('-', 80));
-
-            IEnumerable<(int LineNumber, string Label, string Opcode, string RegisterA, string RegisterB)> preProcessCodelines
+            IEnumerable<(int LineNumber, string Label, string Opcode, string RegisterA, string RegisterB)> parsedCodeLines
                 = codelines.ParseCodeLines();
-
-            Console.WriteLine(string.Join(Environment.NewLine, preProcessCodelines.ToLineString()));
+            Console.WriteLine(string.Join(Environment.NewLine, parsedCodeLines.ToLineString()));
             Console.WriteLine(new string('=', 80));
 
+            Console.WriteLine();
 
         }
     }
