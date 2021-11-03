@@ -18,7 +18,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)RedCodeAddressingModes.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)RedCodeCompiler.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)RedCodeOpcodes.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)RedCodeLexer.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)RedCodeTokenizer.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)RedCodeSpecialCommands.cs" />
   </ItemGroup>

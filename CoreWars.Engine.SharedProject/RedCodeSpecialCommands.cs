@@ -5,28 +5,24 @@ namespace CoreWars.Engine {
     internal enum RedCodeSpecialCommands : byte {
 
         [SpecialCommand(
-            symbol: "END",
-            description: "Stops compilation, further lines are treated as comments."
+            symbol: "EQU",
+            description: "Assigns value to a variable.",
+            example: "[value] EQU [variable]"
         )]
-        END,
+        EQU,
 
         [SpecialCommand(
             symbol: "ORG",
-            description: "takes one parameter, which identifies the start location."
+            description: "takes one parameter, which identifies the start location.",
+            example: "ORG <post description>"
         )]
         ORG,
 
         [SpecialCommand(
-            symbol: "LABEL",
-            description: "Replaces all instances of <label> with <A>."
+            symbol: "END",
+            description: "Stops compilation, further lines are treated as comments.",
+            example: "END <post description>"
         )]
-        LABEL,
-
-        [SpecialCommand(
-            symbol: "PIN",
-            description: "Specifies P-Space identifier. If equal, the two programs share P-Space."
-        )]
-        PIN,
-
+        END,
     }
 }

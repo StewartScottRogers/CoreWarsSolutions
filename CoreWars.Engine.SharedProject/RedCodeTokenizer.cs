@@ -36,7 +36,8 @@ namespace CoreWars.Engine {
 
         private static IEnumerable<(int LineNumber, string Label, string Opcode, string RegisterA, string RegisterB)> ProcessCodeLine(this IEnumerable<(int lineNumber, string line)> codeLines) {
             foreach ((int lineNumber, string line) codeLine in codeLines) {
-                var startsWithBlankSpace = codeLine.line.StartsWith(" ");
+                bool startsWithBlankSpace = codeLine.line.StartsWith(" ");
+                
 
                 string[] lineParts
                                      = codeLine.line
@@ -55,15 +56,29 @@ namespace CoreWars.Engine {
                         RegisterB: GetLinePart(lineParts, 0)
                    );
                 } else {
-           
-                    yield return (
-                        LineNumber: codeLine.lineNumber,
+                    bool assignmentEQU = GetLinePart(lineParts, 1).ToUpper() == nameof(RedCodeSpecialCommands.EQU);
 
-                        Label: GetLinePart(lineParts, 3),
-                        Opcode: GetLinePart(lineParts, 2),
-                        RegisterA: GetLinePart(lineParts, 1),
-                        RegisterB: GetLinePart(lineParts, 0)
-                   );
+                    if (assignmentEQU) {
+                        yield return (
+                            LineNumber: codeLine.lineNumber,
+
+                            Label: string.Empty,
+                            Opcode: GetLinePart(lineParts, 1),
+                            RegisterA: GetLinePart(lineParts, 0),
+                            RegisterB: GetLinePart(lineParts, 2)
+                       );
+                    } else {
+                        yield return (
+                            LineNumber: codeLine.lineNumber,
+
+                            Label: GetLinePart(lineParts, 3),
+                            Opcode: GetLinePart(lineParts, 2),
+                            RegisterA: GetLinePart(lineParts, 1),
+                            RegisterB: GetLinePart(lineParts, 0)
+                        );
+                    }
+
+                 
                 }
             }
         }
