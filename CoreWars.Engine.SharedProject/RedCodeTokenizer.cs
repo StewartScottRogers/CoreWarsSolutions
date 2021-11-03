@@ -2,7 +2,7 @@
 using System.Linq;
 
 namespace CoreWars.Engine {
-    internal static class RedCodePreProcessor {
+    internal static class RedCodeTokenizer {
 
         public static IEnumerable<(int LineNumber, string Label, string Opcode, string RegisterA, string RegisterB)> ParseCodeLines(this IEnumerable<(int lineNumber, string line)> codeLines)
             => ProcessCodeLine(ProcessCodeLines(codeLines));
@@ -27,7 +27,7 @@ namespace CoreWars.Engine {
                     if (!line.StartsWith(";"))
                         yield return (
                             lineNumber: codeLine.lineNumber,
-                            line: codeLine.line.Split(';', System.StringSplitOptions.RemoveEmptyEntries)[0].Trim()
+                            line: codeLine.line.Split(';', System.StringSplitOptions.RemoveEmptyEntries)[0]
                         );
 
                 }
@@ -36,22 +36,38 @@ namespace CoreWars.Engine {
 
         private static IEnumerable<(int LineNumber, string Label, string Opcode, string RegisterA, string RegisterB)> ProcessCodeLine(this IEnumerable<(int lineNumber, string line)> codeLines) {
             foreach ((int lineNumber, string line) codeLine in codeLines) {
+                var isLabled = !codeLine.line.StartsWith(" ");
+                if (isLabled) {
+                    string[] lineParts
+                                      = codeLine.line
+                                                  .Split(' ', System.StringSplitOptions.RemoveEmptyEntries)
+                                                      .Reverse()
+                                                          .ToArray();
 
-                string[] lineParts
-                    = codeLine.line
-                                .Split(' ', System.StringSplitOptions.RemoveEmptyEntries | System.StringSplitOptions.TrimEntries)
-                                    .Reverse()
-                                        .ToArray();
+                    yield return (
+                        LineNumber: codeLine.lineNumber,
 
-                yield return (
-                    LineNumber: codeLine.lineNumber,
+                        Label: GetLinePart(lineParts, 3),
+                        Opcode: GetLinePart(lineParts, 2),
+                        RegisterA: GetLinePart(lineParts, 1),
+                        RegisterB: GetLinePart(lineParts, 0)
+                   );
+                } else {
+                    string[] lineParts
+                  = codeLine.line
+                              .Split(' ', System.StringSplitOptions.RemoveEmptyEntries)
+                                  .Reverse()
+                                      .ToArray();
 
-                    Label: GetLinePart(lineParts, 3),
-                    Opcode: GetLinePart(lineParts, 2),
-                    RegisterA: GetLinePart(lineParts, 1),
-                    RegisterB: GetLinePart(lineParts, 0)
-               );
+                    yield return (
+                        LineNumber: codeLine.lineNumber,
 
+                        Label: GetLinePart(lineParts, 3),
+                        Opcode: GetLinePart(lineParts, 2),
+                        RegisterA: GetLinePart(lineParts, 1),
+                        RegisterB: GetLinePart(lineParts, 0)
+                   );
+                }
             }
         }
 
