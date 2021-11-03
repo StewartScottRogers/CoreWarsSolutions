@@ -7,6 +7,15 @@ namespace CoreWars.Engine {
         public static IEnumerable<(int LineNumber, string Label, string Opcode, string RegisterA, string RegisterB)> ParseCodeLines(this IEnumerable<(int lineNumber, string line)> codeLines)
             => ProcessCodeLine(ProcessCodeLines(codeLines));
 
+        public static IEnumerable<string> ToLineString(this IEnumerable<(int LineNumber, string Label, string Opcode, string RegisterA, string RegisterB)> parsedCodeLines) {
+            yield return $"{"####",-6}  {"Label",-15} {"Opcode",-15} {"RegisterA",-15} {"RegisterB",-15}";
+            foreach ((int LineNumber, string Label, string Opcode, string RegisterA, string RegisterB) parsedCodeLine in parsedCodeLines) {
+                string lineNumber = $"{parsedCodeLine.LineNumber:0000}";
+                string text = $"{lineNumber,-6}  {parsedCodeLine.Label,-15} {parsedCodeLine.Opcode,-15} {parsedCodeLine.RegisterA,-15} {parsedCodeLine.RegisterB,-15}";
+                yield return text;
+            }
+        }
+
         private static IEnumerable<(int lineNumber, string line)> ProcessCodeLines(this IEnumerable<(int lineNumber, string line)> codeLines) {
             foreach ((int lineNumber, string line) codeLine in codeLines) {
                 string line = codeLine.line.Trim();
@@ -36,6 +45,7 @@ namespace CoreWars.Engine {
 
                 yield return (
                     LineNumber: codeLine.lineNumber,
+
                     Label: GetLinePart(lineParts, 3),
                     Opcode: GetLinePart(lineParts, 2),
                     RegisterA: GetLinePart(lineParts, 1),

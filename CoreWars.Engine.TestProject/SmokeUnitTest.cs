@@ -69,7 +69,7 @@ namespace CoreWars.Engine {
             IEnumerable<(int LineNumber, string Label, string Opcode, string RegisterA, string RegisterB)> preProcessCodelines 
                 = codelines.ParseCodeLines();
             
-            Console.WriteLine(string.Join(Environment.NewLine, preProcessCodelines));
+            Console.WriteLine(string.Join(Environment.NewLine, preProcessCodelines.ToLineString()));
             Console.WriteLine(new string('=', 80));
 
           
