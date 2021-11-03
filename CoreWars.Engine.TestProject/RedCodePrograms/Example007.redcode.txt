@@ -1,0 +1,11 @@
+﻿dest01  equ     1000
+dest02  equ     1234
+dest03  equ     1666
+dest04  equ     (CORESIZE-1111)
+
+jtable
+ix      for     4
+jump&ix spl     dest&ix
+        djn.b   jump&ix, #ix
+        rof
+

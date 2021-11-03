@@ -12,6 +12,8 @@ namespace CoreWars.Engine.RedCodePrograms {
         public static (string Name, string Cotent, IEnumerable<(int lineNumber, string line)> Codelines) GetExample004() => GetEmbeddedProgram("Example004.redcode");
         public static (string Name, string Cotent, IEnumerable<(int lineNumber, string line)> Codelines) GetExample005() => GetEmbeddedProgram("Example005.redcode");
         public static (string Name, string Cotent, IEnumerable<(int lineNumber, string line)> Codelines) GetExample006() => GetEmbeddedProgram("Example006.redcode");
+        public static (string Name, string Cotent, IEnumerable<(int lineNumber, string line)> Codelines) GetExample007() => GetEmbeddedProgram("Example007.redcode");
+        public static (string Name, string Cotent, IEnumerable<(int lineNumber, string line)> Codelines) GetExample008() => GetEmbeddedProgram("Example008.redcode");
 
 
         private static (string Name, string Cotent, IEnumerable<(int lineNumber, string line)> Codelines) GetEmbeddedProgram(string programName) {
@@ -29,10 +31,8 @@ namespace CoreWars.Engine.RedCodePrograms {
             using (StringReader stringReader = new StringReader(lines)) {
                 string line;
                 int lineNumber = 1;
-                while ((line = stringReader.ReadLine()) != null) {
-                    line = line.Trim();
+                while ((line = stringReader.ReadLine()) != null)
                     yield return (lineNumber: lineNumber++, line: line);
-                }
             }
 
         }

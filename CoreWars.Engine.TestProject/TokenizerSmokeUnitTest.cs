@@ -24,6 +24,9 @@ namespace CoreWars.Engine {
 
         [TestMethod] public void Display_Loading_And_Tokenizing_Of_RedCode_Example006() => Display_Loading_And_Tokenizing_Of_RedCode(RedCodeProgramStorage.GetExample006());
 
+        [TestMethod] public void Display_Loading_And_Tokenizing_Of_RedCode_Example007() => Display_Loading_And_Tokenizing_Of_RedCode(RedCodeProgramStorage.GetExample007());
+
+        [TestMethod] public void Display_Loading_And_Tokenizing_Of_RedCode_Example008() => Display_Loading_And_Tokenizing_Of_RedCode(RedCodeProgramStorage.GetExample008());
 
 
         private void Display_Loading_And_Tokenizing_Of_RedCode((string Name, string Cotent, IEnumerable<(int lineNumber, string line)> Codelines) program) {
@@ -48,9 +51,9 @@ namespace CoreWars.Engine {
             Console.WriteLine(new string('-', 80));
             Console.WriteLine($"Program Name: '{program.Name}' ParsedCodeLines.");
             Console.WriteLine(new string('-', 80));
-            IEnumerable<(int LineNumber, string Label, string Command, string ParameterA, string ParameterB)> parsedCodeLines
+            IEnumerable<(int LineNumber, string LineType, string Label, string Command, string ParameterA, string ParameterB)> parsedCodeLines
                 = codelines.ParseCodeLines();
-            Console.WriteLine(string.Join(Environment.NewLine, parsedCodeLines.ToLineString()));
+            Console.WriteLine(string.Join(Environment.NewLine, parsedCodeLines.ToStrings()));
             Console.WriteLine(new string('=', 80));
 
             Console.WriteLine();

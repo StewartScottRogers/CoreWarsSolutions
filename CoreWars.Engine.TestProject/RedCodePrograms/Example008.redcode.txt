@@ -1,0 +1,8 @@
+﻿; The main warrior body is here
+
+decoy
+foo     for     (MAXLENGTH-CURLINE)
+        dat     1, 1
+        rof
+
+        end
