@@ -24,5 +24,19 @@ namespace CoreWars.Engine {
             example: "END <post description>"
         )]
         END,
+
+        [SpecialCommand(
+            symbol: "FOR",
+            description: "For Interations",
+            example: "For [A]"
+        )]
+        FOR,
+
+        [SpecialCommand(
+            symbol: "ROF",
+            description: "End of For Interations",
+            example: "ROF"
+        )]
+        ROF,
     }
 }
