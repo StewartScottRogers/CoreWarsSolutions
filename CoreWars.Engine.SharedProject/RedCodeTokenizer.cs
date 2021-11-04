@@ -32,7 +32,7 @@ namespace CoreWars.Engine {
                         continue;
 
                     string lineType = "variable";
-                    if (line.StartsWith(" "))
+                    if (line.StartsWith(" ") || line.StartsWith("\t"))
                         lineType = "";
 
                     yield return (
@@ -48,11 +48,13 @@ namespace CoreWars.Engine {
         private static IEnumerable<(int LineNumber, string LineType, string Label, string Command, string ParameterA, string ParameterB)> ProcessCodeLine(this IEnumerable<(int lineNumber, string lineType, string line)> codeLines) {
             foreach ((int lineNumber, string LineType, string line) codeLine in codeLines) {
 
+                string line = codeLine.line.Replace(",", " ").Replace("\t", "    ");
+
                 string[] lineParts
-                    = codeLine.line
-                                .Split(' ', System.StringSplitOptions.RemoveEmptyEntries)
-                                    .Reverse()
-                                        .ToArray();
+                    = line
+                        .Split(' ', System.StringSplitOptions.RemoveEmptyEntries)
+                            .Reverse()
+                                .ToArray();
 
 
                 bool isLabled = ("variable" == codeLine.LineType);
