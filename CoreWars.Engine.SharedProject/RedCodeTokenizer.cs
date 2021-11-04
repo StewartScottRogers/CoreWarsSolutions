@@ -67,7 +67,7 @@ namespace CoreWars.Engine {
                                         LineType: codeLine.LineType,
 
                                         Label: GetLinePart(lineParts, 3),
-                                        Command: GetLinePart(lineParts, 2),
+                                        Command: GetLinePart(lineParts, 2).ToLower(),
                                         ParameterA: GetLinePart(lineParts, 1),
                                         ParameterB: GetLinePart(lineParts, 0)
                                      );
@@ -81,7 +81,7 @@ namespace CoreWars.Engine {
                                         LineType: codeLine.LineType,
 
                                         Label: GetLinePart(lineParts, 2),
-                                        Command: GetLinePart(lineParts, 1),
+                                        Command: GetLinePart(lineParts, 1).ToLower(),
                                         ParameterA: GetLinePart(lineParts, 0),
                                         ParameterB: string.Empty
                                      );
@@ -95,7 +95,7 @@ namespace CoreWars.Engine {
                                         LineType: codeLine.LineType,
 
                                         Label: GetLinePart(lineParts, 2),
-                                        Command: GetLinePart(lineParts, 1),
+                                        Command: GetLinePart(lineParts, 1).ToLower(),
                                         ParameterA: string.Empty,
                                         ParameterB: string.Empty
                                      );
@@ -113,7 +113,7 @@ namespace CoreWars.Engine {
                                         LineType: codeLine.LineType,
 
                                           Label: string.Empty,
-                                        Command: GetLinePart(lineParts, 2),
+                                        Command: GetLinePart(lineParts, 2).ToLower(),
                                         ParameterA: GetLinePart(lineParts, 1),
                                         ParameterB: GetLinePart(lineParts, 0)
                                      );
@@ -127,7 +127,7 @@ namespace CoreWars.Engine {
                                         LineType: codeLine.LineType,
 
                                         Label: string.Empty,
-                                        Command: GetLinePart(lineParts, 1),
+                                        Command: GetLinePart(lineParts, 1).ToLower(),
                                         ParameterA: GetLinePart(lineParts, 0),
                                         ParameterB: string.Empty
                                      );
@@ -141,7 +141,7 @@ namespace CoreWars.Engine {
                                         LineType: codeLine.LineType,
 
                                         Label: string.Empty,
-                                        Command: GetLinePart(lineParts, 0),
+                                        Command: GetLinePart(lineParts, 0).ToLower(),
                                         ParameterA: string.Empty,
                                         ParameterB: string.Empty
                                      );
