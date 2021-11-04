@@ -85,7 +85,7 @@ namespace CoreWars.Engine.Enumerations {
         DJN = 10,
 
         [Opcode(
-            symbolEnabled: true,
+            symbolEnabled: false,
             symbol: "SPL",
             description: "split (starts a second process at another address). place A in the process queue. - A B: place A  in  the process queue",
             example: "SPL [a]"
@@ -97,7 +97,7 @@ namespace CoreWars.Engine.Enumerations {
 
         // The ICWS- ++
         [Opcode(
-            symbolEnabled: true,
+            symbolEnabled: false,
             symbol: "MUL",
             description: "multiply (multiplies one number with another).",
             example: ""
@@ -105,7 +105,7 @@ namespace CoreWars.Engine.Enumerations {
         MUL = 12,
 
         [Opcode(
-            symbolEnabled: true,
+            symbolEnabled: false,
             symbol: "DIV",
             description: "divide (divides one number with another).",
             example: ""
@@ -113,7 +113,7 @@ namespace CoreWars.Engine.Enumerations {
         DIV = 13,
 
         [Opcode(
-            symbolEnabled: true,
+            symbolEnabled: false,
             symbol: "MOD",
             description: "modulus (divides one number with another and gives the remainder).",
             example: ""
@@ -121,7 +121,7 @@ namespace CoreWars.Engine.Enumerations {
         MOD = 14,
 
         [Opcode(
-            symbolEnabled: true,
+            symbolEnabled: false,
             symbol: "SEQ",
             description: "skip if equal (compares two instructions, and skips the next instruction if they are equal).",
             example: ""
@@ -129,7 +129,7 @@ namespace CoreWars.Engine.Enumerations {
         SEQ = 15,
 
         [Opcode(
-            symbolEnabled: true,
+            symbolEnabled: false,
             symbol: "SNE",
             description: "skip if not equal (compares two instructions, and skips the next instruction if they aren't equal).",
             example: ""
@@ -137,7 +137,7 @@ namespace CoreWars.Engine.Enumerations {
         SNE = 16,
 
         [Opcode(
-            symbolEnabled: true,
+            symbolEnabled: false,
             symbol: "NOP",
             description: "no operation(does nothing).",
             example: ""

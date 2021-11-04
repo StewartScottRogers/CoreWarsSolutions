@@ -19,7 +19,7 @@ namespace CoreWars.Engine.Enumerations {
         Direct,
 
         [AddressingMode(
-            symbolEnabled: true,
+            symbolEnabled: false,
             symbol: "@",
             description: "Indirect: The opcode points to a cell relative to the current cell. That cell's B value is added to the indirect pointer, to provide the target.",
             example: ""
@@ -27,7 +27,7 @@ namespace CoreWars.Engine.Enumerations {
         Indirect,
 
         [AddressingMode(
-            symbolEnabled: true,
+            symbolEnabled: false,
             symbol: "<",
             description: "Indirect With Predecrement: The intermediate register is decreased before use.",
             example: ""
@@ -35,9 +35,9 @@ namespace CoreWars.Engine.Enumerations {
         IndirectWithPredecrement,
 
         [AddressingMode(
-           symbolEnabled: true,
+            symbolEnabled: false,
             symbol: "<",
-           description: "Indirect With Predecrement: The intermediate register is increased after use.",
+            description: "Indirect With Predecrement: The intermediate register is increased after use.",
             example: ""
         )]
         IndirectWithPostincrement,

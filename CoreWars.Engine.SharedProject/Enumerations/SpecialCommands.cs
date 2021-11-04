@@ -13,7 +13,7 @@ namespace CoreWars.Engine.Enumerations {
         EQU,
 
         [SpecialCommand(
-            symbolEnabled: true,
+            symbolEnabled: false,
             symbol: "ORG",
             description: "takes one parameter, which identifies the start location.",
             example: "ORG <post description>"
@@ -21,7 +21,7 @@ namespace CoreWars.Engine.Enumerations {
         ORG,
 
         [SpecialCommand(
-            symbolEnabled: true,
+            symbolEnabled: false,
             symbol: "END",
             description: "Stops compilation, further lines are treated as comments.",
             example: "END <post description>"
@@ -29,7 +29,7 @@ namespace CoreWars.Engine.Enumerations {
         END,
 
         [SpecialCommand(
-            symbolEnabled: true,
+            symbolEnabled: false,
             symbol: "FOR",
             description: "For Interations",
             example: "For [A]"
@@ -37,7 +37,7 @@ namespace CoreWars.Engine.Enumerations {
         FOR,
 
         [SpecialCommand(
-            symbolEnabled: true,
+            symbolEnabled: false,
             symbol: "ROF",
             description: "End of For Interations",
             example: "ROF"
