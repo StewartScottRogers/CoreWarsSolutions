@@ -1,23 +1,13 @@
 ﻿using System;
 
+using CoreWars.Engine.Attributes.Library;
+
 namespace CoreWars.Engine.Attributes {
-    internal class AddressingModeAttribute : Attribute {
+    internal class AddressingModeAttribute : SymbolAttribute {
+        public AddressingModeAttribute(Boolean symbolEnabled, String symbol) : base(symbolEnabled, symbol) { }
 
-        public string Symbol { get; private set; }
+        public AddressingModeAttribute(Boolean symbolEnabled, String symbol, String description) : base(symbolEnabled, symbol, description) { }
 
-        public string Description { get; private set; }
-
-        public AddressingModeAttribute(string symbol) {
-            Symbol = symbol;
-            Description = string.Empty;
-        }
-
-        public AddressingModeAttribute(string symbol, string description) {
-            Symbol = symbol;
-            Description = description;
-        }
-
-        public override String ToString() => $"{Symbol}, '{Description}'.";
-
+        public AddressingModeAttribute(Boolean symbolEnabled, String symbol, String description, String example) : base(symbolEnabled, symbol, description, example) { }
     }
 }

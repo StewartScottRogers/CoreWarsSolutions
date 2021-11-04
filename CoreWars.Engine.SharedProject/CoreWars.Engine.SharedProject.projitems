@@ -9,10 +9,11 @@
     <Import_RootNamespace>CoreWars.Engine</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Attributes\Library\SymbolAttribute.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Attributes\AddressingModeAttribute.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Attributes\SpecialCommandAttribute.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extentions\ByteExtentions.cs" />
-    <Compile Include="..\CoreWars.Engine.SharedProject\Attributes\OpXcodeAttribute.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Attributes\OpcodeAttribute.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)MemoryCore.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Enumerations\AddressingModes.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Enumerations\Opcodes.cs" />
@@ -20,6 +21,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Enumerations\SpecialCommands.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="$(MSBuildThisFileDirectory)Attributes\Library\" />
     <Folder Include="$(MSBuildThisFileDirectory)Enumerations\" />
   </ItemGroup>
 </Project>

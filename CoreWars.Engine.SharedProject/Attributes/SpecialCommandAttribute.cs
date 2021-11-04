@@ -1,31 +1,13 @@
 ﻿using System;
 
+using CoreWars.Engine.Attributes.Library;
+
 namespace CoreWars.Engine.Attributes {
-    internal class SpecialCommandAttribute : Attribute{
-        public string Symbol { get; private set; }
+    internal class SpecialCommandAttribute : SymbolAttribute {
+        public SpecialCommandAttribute(Boolean symbolEnabled, String symbol) : base(symbolEnabled, symbol) { }
 
-        public string Description { get; private set; }
+        public SpecialCommandAttribute(Boolean symbolEnabled, String symbol, String description) : base(symbolEnabled, symbol, description) { }
 
-        public string Example { get; private set; }
-
-        public SpecialCommandAttribute(string symbol) {
-            Symbol = symbol;
-            Description = string.Empty;
-            Example = string.Empty;
-        }
-
-        public SpecialCommandAttribute(string symbol, string description) {
-            Symbol = symbol;
-            Description = description;
-            Example = string.Empty;
-        }
-
-        public SpecialCommandAttribute(string symbol, string description, string example) {
-            Symbol = symbol;
-            Description = description;
-            Example = example;
-        }
-
-        public override String ToString() => $"{Symbol}, '{Description}', '{Example}'.";
+        public SpecialCommandAttribute(Boolean symbolEnabled, String symbol, String description, String example) : base(symbolEnabled, symbol, description, example) { }
     }
 }
