@@ -1,7 +1,7 @@
 ﻿using CoreWars.Engine.Attributes;
 
-namespace CoreWars.Engine {
-    internal enum RedCodeAddressingModes : byte {
+namespace CoreWars.Engine.Enumerations {
+    internal enum AddressingModes : byte {
 
         [AddressingMode(
             symbol: "#",

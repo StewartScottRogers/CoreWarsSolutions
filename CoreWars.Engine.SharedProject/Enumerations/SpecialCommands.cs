@@ -1,8 +1,8 @@
 ﻿
 using CoreWars.Engine.Attributes;
 
-namespace CoreWars.Engine {
-    internal enum RedCodeSpecialCommands : byte {
+namespace CoreWars.Engine.Enumerations {
+    internal enum SpecialCommands : byte {
 
         [SpecialCommand(
             symbol: "EQU",

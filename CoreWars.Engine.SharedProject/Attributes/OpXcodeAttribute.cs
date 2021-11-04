@@ -1,7 +1,7 @@
 ﻿using System;
 
 namespace CoreWars.Engine.Attributes {
-    internal sealed class OpXcodeAttribute : Attribute {
+    internal sealed class OpcodeAttribute : Attribute {
         public string Symbol { get; private set; }
 
 
@@ -9,19 +9,19 @@ namespace CoreWars.Engine.Attributes {
 
         public string Example { get; private set; }
 
-        public OpXcodeAttribute(string symbol) {
+        public OpcodeAttribute(string symbol) {
             Symbol = symbol;    
             Description = string.Empty;
             Example = string.Empty;
         }
 
-        public OpXcodeAttribute(string symbol, string description) {
+        public OpcodeAttribute(string symbol, string description) {
             Symbol = symbol;
             Description = description; 
             Example = string.Empty;
         }
 
-        public OpXcodeAttribute(string symbol,string description, string example) {
+        public OpcodeAttribute(string symbol,string description, string example) {
             Symbol = symbol;
             Description = description;
             Example = example;  
