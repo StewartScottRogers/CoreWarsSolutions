@@ -3,7 +3,7 @@ using System.IO;
 using System.Reflection;
 
 namespace CoreWars.Engine.RedCodePrograms {
-    internal static class RedCodeProgramStorage {
+    internal static class TokenizerSmokeUnitTestSamplesStorage {
 
         public static (string Name, string Cotent, IEnumerable<(int lineNumber, string line)> Codelines) GetExample000() => GetEmbeddedProgram("Example000.redcode");
 
@@ -53,7 +53,7 @@ namespace CoreWars.Engine.RedCodePrograms {
 
         private static (string Name, string Cotent, IEnumerable<(int lineNumber, string line)> Codelines) GetEmbeddedProgram(string programName) {
             var assembly = Assembly.GetExecutingAssembly();
-            var resourceName = $"CoreWars.Engine.RedCodeSamples.{programName}.txt";
+            var resourceName = $"CoreWars.Engine.TokenizerSmokeUnitTestSamples.{programName}.txt";
 
             using (Stream stream = assembly.GetManifestResourceStream(resourceName))
             using (StreamReader streamReader = new StreamReader(stream)) {
