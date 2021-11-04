@@ -11,14 +11,12 @@
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)Attributes\AddressingModeAttribute.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Attributes\SpecialCommandAttribute.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)ExecutionEngine.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extentions\ByteExtentions.cs" />
     <Compile Include="..\CoreWars.Engine.SharedProject\Attributes\OpXcodeAttribute.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)MemoryCore.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Enumerations\AddressingModes.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)RedCodeCompiler.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Enumerations\Opcodes.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)RedCodeTokenizer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extentions\TokenizerExtentions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Enumerations\SpecialCommands.cs" />
   </ItemGroup>
   <ItemGroup>

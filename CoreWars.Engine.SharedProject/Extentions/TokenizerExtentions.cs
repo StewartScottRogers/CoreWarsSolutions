@@ -2,12 +2,14 @@
 using System.Linq;
 
 namespace CoreWars.Engine {
-    internal static class RedCodeTokenizer {
+    internal static class TokenizerExtentions {
 
-        public static IEnumerable<(int LineNumber, string LineType, string Label, string Command, string ParameterA, string ParameterB)> ParseCodeLines(this IEnumerable<(int lineNumber, string line)> codeLines)
+        public static IEnumerable<(int LineNumber, string LineType, string Label, string Command, string ParameterA, string ParameterB)>
+            ParseCodeLines(this IEnumerable<(int lineNumber, string line)> codeLines)
             => ProcessCodeLine(ProcessCodeLines(codeLines));
 
-        public static IEnumerable<string> ToStrings(this IEnumerable<(int LineNumber, string LineType, string Label, string Command, string ParameterA, string ParameterB)> parsedCodeLines) {
+        public static IEnumerable<string>
+            ToStrings(this IEnumerable<(int LineNumber, string LineType, string Label, string Command, string ParameterA, string ParameterB)> parsedCodeLines) {
 
             yield return $"{"[Type]",-10} {"[####]",-8} {"[Label]",-15} {"[Command]",-15} {"[ParameterA]",-20} {"[ParameterB]",-20}";
 
@@ -18,7 +20,9 @@ namespace CoreWars.Engine {
             }
         }
 
-        private static IEnumerable<(int lineNumber, string LineType, string line)> ProcessCodeLines(this IEnumerable<(int lineNumber, string line)> codeLines) {
+        #region Private Methods
+        private static IEnumerable<(int lineNumber, string LineType, string line)>
+            ProcessCodeLines(this IEnumerable<(int lineNumber, string line)> codeLines) {
             foreach ((int lineNumber, string line) codeLine in codeLines) {
                 string line = codeLine.line;
                 string timmedLine = line.Trim();
@@ -45,7 +49,8 @@ namespace CoreWars.Engine {
             }
         }
 
-        private static IEnumerable<(int LineNumber, string LineType, string Label, string Command, string ParameterA, string ParameterB)> ProcessCodeLine(this IEnumerable<(int lineNumber, string lineType, string line)> codeLines) {
+        private static IEnumerable<(int LineNumber, string LineType, string Label, string Command, string ParameterA, string ParameterB)>
+            ProcessCodeLine(this IEnumerable<(int lineNumber, string lineType, string line)> codeLines) {
             foreach ((int lineNumber, string LineType, string line) codeLine in codeLines) {
 
                 string line = codeLine.line.Replace(",", " ").Replace("\t", "    ");
@@ -102,11 +107,11 @@ namespace CoreWars.Engine {
 
                         yield return result;
 
-                    } 
+                    }
 
                 } else {
 
-                    if(lineParts.Length == 3) {
+                    if (lineParts.Length == 3) {
 
                         var result = (
                                         LineNumber: codeLine.lineNumber,
@@ -153,7 +158,8 @@ namespace CoreWars.Engine {
             }
         }
 
-        private static string GetLinePart(string[] lineParts, int index) {
+        private static string
+            GetLinePart(string[] lineParts, int index) {
             if (lineParts.Length > index) {
                 string linePart = lineParts[index].Trim();
                 if (linePart.EndsWith(","))
@@ -163,6 +169,6 @@ namespace CoreWars.Engine {
 
             return string.Empty;
         }
-
+        #endregion
     }
 }
