@@ -10,33 +10,51 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="RedCodePrograms\Example000.redcode.txt" />
-    <None Remove="RedCodePrograms\Example001.redcode.txt" />
-    <None Remove="RedCodePrograms\Example002.redcode.txt" />
-    <None Remove="RedCodePrograms\Example003.redcode.txt" />
-    <None Remove="RedCodePrograms\Example004.redcode.txt" />
-    <None Remove="RedCodePrograms\Example005.redcode.txt" />
-    <None Remove="RedCodePrograms\Example006.redcode.txt" />
-    <None Remove="RedCodePrograms\Example007.redcode.txt" />
-    <None Remove="RedCodePrograms\Example008.redcode.txt" />
-    <None Remove="RedCodePrograms\Example009.redcode.txt" />
-    <None Remove="RedCodePrograms\Example010.redcode.txt" />
-    <None Remove="RedCodePrograms\Example011.redcode.txt" />
+    <None Remove="RedCodeSamples\Example000.redcode.txt" />
+    <None Remove="RedCodeSamples\Example001.redcode.txt" />
+    <None Remove="RedCodeSamples\Example002.redcode.txt" />
+    <None Remove="RedCodeSamples\Example003.redcode.txt" />
+    <None Remove="RedCodeSamples\Example004.redcode.txt" />
+    <None Remove="RedCodeSamples\Example005.redcode.txt" />
+    <None Remove="RedCodeSamples\Example006.redcode.txt" />
+    <None Remove="RedCodeSamples\Example007.redcode.txt" />
+    <None Remove="RedCodeSamples\Example008.redcode.txt" />
+    <None Remove="RedCodeSamples\Example009.redcode.txt" />
+    <None Remove="RedCodeSamples\Example010.redcode.txt" />
+    <None Remove="RedCodeSamples\Example011.redcode.txt" />
+    <None Remove="RedCodeSamples\Example012.redcode.txt" />
+    <None Remove="RedCodeSamples\Example013.redcode.txt" />
+    <None Remove="RedCodeSamples\Example014.redcode.txt" />
+    <None Remove="RedCodeSamples\Example015.redcode.txt" />
+    <None Remove="RedCodeSamples\Example016.redcode.txt" />
+    <None Remove="RedCodeSamples\Example017.redcode.txt" />
+    <None Remove="RedCodeSamples\Example018.redcode.txt" />
+    <None Remove="RedCodeSamples\Example019.redcode.txt" />
+    <None Remove="RedCodeSamples\Example020.redcode.txt" />
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="RedCodePrograms\Example000.redcode.txt" />
-    <EmbeddedResource Include="RedCodePrograms\Example011.redcode.txt" />
-    <EmbeddedResource Include="RedCodePrograms\Example010.redcode.txt" />
-    <EmbeddedResource Include="RedCodePrograms\Example009.redcode.txt" />
-    <EmbeddedResource Include="RedCodePrograms\Example008.redcode.txt" />
-    <EmbeddedResource Include="RedCodePrograms\Example007.redcode.txt" />
-    <EmbeddedResource Include="RedCodePrograms\Example006.redcode.txt" />
-    <EmbeddedResource Include="RedCodePrograms\Example005.redcode.txt" />
-    <EmbeddedResource Include="RedCodePrograms\Example004.redcode.txt" />
-    <EmbeddedResource Include="RedCodePrograms\Example003.redcode.txt" />
-    <EmbeddedResource Include="RedCodePrograms\Example002.redcode.txt" />
-    <EmbeddedResource Include="RedCodePrograms\Example001.redcode.txt" />
+    <EmbeddedResource Include="RedCodeSamples\Example000.redcode.txt" />
+    <EmbeddedResource Include="RedCodeSamples\Example020.redcode.txt" />
+    <EmbeddedResource Include="RedCodeSamples\Example019.redcode.txt" />
+    <EmbeddedResource Include="RedCodeSamples\Example018.redcode.txt" />
+    <EmbeddedResource Include="RedCodeSamples\Example017.redcode.txt" />
+    <EmbeddedResource Include="RedCodeSamples\Example016.redcode.txt" />
+    <EmbeddedResource Include="RedCodeSamples\Example015.redcode.txt" />
+    <EmbeddedResource Include="RedCodeSamples\Example014.redcode.txt" />
+    <EmbeddedResource Include="RedCodeSamples\Example013.redcode.txt" />
+    <EmbeddedResource Include="RedCodeSamples\Example012.redcode.txt" />
+    <EmbeddedResource Include="RedCodeSamples\Example011.redcode.txt" />
+    <EmbeddedResource Include="RedCodeSamples\Example010.redcode.txt" />
+    <EmbeddedResource Include="RedCodeSamples\Example009.redcode.txt" />
+    <EmbeddedResource Include="RedCodeSamples\Example008.redcode.txt" />
+    <EmbeddedResource Include="RedCodeSamples\Example007.redcode.txt" />
+    <EmbeddedResource Include="RedCodeSamples\Example006.redcode.txt" />
+    <EmbeddedResource Include="RedCodeSamples\Example005.redcode.txt" />
+    <EmbeddedResource Include="RedCodeSamples\Example004.redcode.txt" />
+    <EmbeddedResource Include="RedCodeSamples\Example003.redcode.txt" />
+    <EmbeddedResource Include="RedCodeSamples\Example002.redcode.txt" />
+    <EmbeddedResource Include="RedCodeSamples\Example001.redcode.txt" />
   </ItemGroup>
 
   <ItemGroup>

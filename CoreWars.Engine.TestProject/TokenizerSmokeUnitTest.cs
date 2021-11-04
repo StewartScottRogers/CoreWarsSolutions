@@ -9,26 +9,6 @@ namespace CoreWars.Engine {
 
     [TestClass]
     public class TokenizerSmokeUnitTest {
-
-        [TestMethod] public void Display_Loading_And_Tokenizing_Of_RedCode_Example000() => Display_Loading_And_Tokenizing_Of_RedCode(RedCodeProgramStorage.GetExample000());
-
-        [TestMethod] public void Display_Loading_And_Tokenizing_Of_RedCode_Example001() => Display_Loading_And_Tokenizing_Of_RedCode(RedCodeProgramStorage.GetExample001());
-
-        [TestMethod] public void Display_Loading_And_Tokenizing_Of_RedCode_Example002() => Display_Loading_And_Tokenizing_Of_RedCode(RedCodeProgramStorage.GetExample002());
-
-        [TestMethod] public void Display_Loading_And_Tokenizing_Of_RedCode_Example003() => Display_Loading_And_Tokenizing_Of_RedCode(RedCodeProgramStorage.GetExample003());
-
-        [TestMethod] public void Display_Loading_And_Tokenizing_Of_RedCode_Example004() => Display_Loading_And_Tokenizing_Of_RedCode(RedCodeProgramStorage.GetExample004());
-
-        [TestMethod] public void Display_Loading_And_Tokenizing_Of_RedCode_Example005() => Display_Loading_And_Tokenizing_Of_RedCode(RedCodeProgramStorage.GetExample005());
-
-        [TestMethod] public void Display_Loading_And_Tokenizing_Of_RedCode_Example006() => Display_Loading_And_Tokenizing_Of_RedCode(RedCodeProgramStorage.GetExample006());
-
-        [TestMethod] public void Display_Loading_And_Tokenizing_Of_RedCode_Example007() => Display_Loading_And_Tokenizing_Of_RedCode(RedCodeProgramStorage.GetExample007());
-
-        [TestMethod] public void Display_Loading_And_Tokenizing_Of_RedCode_Example008() => Display_Loading_And_Tokenizing_Of_RedCode(RedCodeProgramStorage.GetExample008());
-
-
         private void Display_Loading_And_Tokenizing_Of_RedCode((string Name, string Cotent, IEnumerable<(int lineNumber, string line)> Codelines) program) {
 
             Console.WriteLine(new string('-', 80));
@@ -59,5 +39,52 @@ namespace CoreWars.Engine {
             Console.WriteLine();
 
         }
+
+        [TestMethod] public void Display_Loading_And_Tokenizing_Of_RedCode_Example000() => Display_Loading_And_Tokenizing_Of_RedCode(RedCodeProgramStorage.GetExample000());
+
+        [TestMethod] public void Display_Loading_And_Tokenizing_Of_RedCode_Example001() => Display_Loading_And_Tokenizing_Of_RedCode(RedCodeProgramStorage.GetExample001());
+
+        [TestMethod] public void Display_Loading_And_Tokenizing_Of_RedCode_Example002() => Display_Loading_And_Tokenizing_Of_RedCode(RedCodeProgramStorage.GetExample002());
+
+        [TestMethod] public void Display_Loading_And_Tokenizing_Of_RedCode_Example003() => Display_Loading_And_Tokenizing_Of_RedCode(RedCodeProgramStorage.GetExample003());
+
+        [TestMethod] public void Display_Loading_And_Tokenizing_Of_RedCode_Example004() => Display_Loading_And_Tokenizing_Of_RedCode(RedCodeProgramStorage.GetExample004());
+
+        [TestMethod] public void Display_Loading_And_Tokenizing_Of_RedCode_Example005() => Display_Loading_And_Tokenizing_Of_RedCode(RedCodeProgramStorage.GetExample005());
+
+        [TestMethod] public void Display_Loading_And_Tokenizing_Of_RedCode_Example006() => Display_Loading_And_Tokenizing_Of_RedCode(RedCodeProgramStorage.GetExample006());
+
+        [TestMethod] public void Display_Loading_And_Tokenizing_Of_RedCode_Example007() => Display_Loading_And_Tokenizing_Of_RedCode(RedCodeProgramStorage.GetExample007());
+
+        [TestMethod] public void Display_Loading_And_Tokenizing_Of_RedCode_Example008() => Display_Loading_And_Tokenizing_Of_RedCode(RedCodeProgramStorage.GetExample008());
+
+        [TestMethod] public void Display_Loading_And_Tokenizing_Of_RedCode_Example009() => Display_Loading_And_Tokenizing_Of_RedCode(RedCodeProgramStorage.GetExample009());
+
+
+
+        [TestMethod] public void Display_Loading_And_Tokenizing_Of_RedCode_Example010() => Display_Loading_And_Tokenizing_Of_RedCode(RedCodeProgramStorage.GetExample010());
+
+        [TestMethod] public void Display_Loading_And_Tokenizing_Of_RedCode_Example011() => Display_Loading_And_Tokenizing_Of_RedCode(RedCodeProgramStorage.GetExample011());
+
+        [TestMethod] public void Display_Loading_And_Tokenizing_Of_RedCode_Example012() => Display_Loading_And_Tokenizing_Of_RedCode(RedCodeProgramStorage.GetExample012());
+
+        [TestMethod] public void Display_Loading_And_Tokenizing_Of_RedCode_Example013() => Display_Loading_And_Tokenizing_Of_RedCode(RedCodeProgramStorage.GetExample013());
+
+        [TestMethod] public void Display_Loading_And_Tokenizing_Of_RedCode_Example014() => Display_Loading_And_Tokenizing_Of_RedCode(RedCodeProgramStorage.GetExample014());
+
+        [TestMethod] public void Display_Loading_And_Tokenizing_Of_RedCode_Example015() => Display_Loading_And_Tokenizing_Of_RedCode(RedCodeProgramStorage.GetExample015());
+
+        [TestMethod] public void Display_Loading_And_Tokenizing_Of_RedCode_Example016() => Display_Loading_And_Tokenizing_Of_RedCode(RedCodeProgramStorage.GetExample016());
+
+        [TestMethod] public void Display_Loading_And_Tokenizing_Of_RedCode_Example017() => Display_Loading_And_Tokenizing_Of_RedCode(RedCodeProgramStorage.GetExample017());
+
+        [TestMethod] public void Display_Loading_And_Tokenizing_Of_RedCode_Example018() => Display_Loading_And_Tokenizing_Of_RedCode(RedCodeProgramStorage.GetExample018());
+
+        [TestMethod] public void Display_Loading_And_Tokenizing_Of_RedCode_Example019() => Display_Loading_And_Tokenizing_Of_RedCode(RedCodeProgramStorage.GetExample019());
+
+
+        [TestMethod] public void Display_Loading_And_Tokenizing_Of_RedCode_Example020() => Display_Loading_And_Tokenizing_Of_RedCode(RedCodeProgramStorage.GetExample020());
+
+        
     }
 }

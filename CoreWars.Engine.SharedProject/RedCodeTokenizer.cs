@@ -9,11 +9,11 @@ namespace CoreWars.Engine {
 
         public static IEnumerable<string> ToStrings(this IEnumerable<(int LineNumber, string LineType, string Label, string Command, string ParameterA, string ParameterB)> parsedCodeLines) {
 
-            yield return $"{"[Type]",-10} {"[####]",-8} {"[Label]",-15} {"[Command]",-15} {"[ParameterA]",-15} {"[ParameterB]",-15}";
+            yield return $"{"[Type]",-10} {"[####]",-8} {"[Label]",-15} {"[Command]",-15} {"[ParameterA]",-20} {"[ParameterB]",-20}";
 
             foreach ((int LineNumber, string LineType, string Label, string Command, string ParameterA, string ParameterB) parsedCodeLine in parsedCodeLines) {
                 string lineNumber = $"{parsedCodeLine.LineNumber:0000}";
-                string text = $"{parsedCodeLine.LineType,-10} {lineNumber,-8} {parsedCodeLine.Label,-15} {parsedCodeLine.Command,-15} {parsedCodeLine.ParameterA,-15} {parsedCodeLine.ParameterB,-15}";
+                string text = $"{parsedCodeLine.LineType,-10} {lineNumber,-8} {parsedCodeLine.Label,-15} {parsedCodeLine.Command,-15} {parsedCodeLine.ParameterA,-20} {parsedCodeLine.ParameterB,-20}";
                 yield return text;
             }
         }
@@ -31,7 +31,7 @@ namespace CoreWars.Engine {
                     if (timmedLine.StartsWith(";"))
                         continue;
 
-                    string lineType = "labled";
+                    string lineType = "variable";
                     if (line.StartsWith(" "))
                         lineType = "";
 
@@ -54,82 +54,98 @@ namespace CoreWars.Engine {
                                     .Reverse()
                                         .ToArray();
 
-                int linePartCount = lineParts.Length;
 
+                bool isLabled = ("variable" == codeLine.LineType);
+                if (isLabled) {
 
-                if (linePartCount <= 1) {
+                    if (lineParts.Length == 4) {
 
-                    var result = (
-                                    LineNumber: codeLine.lineNumber,
-                                    LineType: codeLine.LineType,
+                        var result = (
+                                        LineNumber: codeLine.lineNumber,
+                                        LineType: codeLine.LineType,
 
-                                    Label: string.Empty,
-                                    Command: GetLinePart(lineParts, 0),
-                                    ParameterA: string.Empty,
-                                    ParameterB: string.Empty
-                                );
+                                        Label: GetLinePart(lineParts, 3),
+                                        Command: GetLinePart(lineParts, 2),
+                                        ParameterA: GetLinePart(lineParts, 1),
+                                        ParameterB: GetLinePart(lineParts, 0)
+                                     );
 
-                    yield return result;
+                        yield return result;
+
+                    } else if (lineParts.Length == 3) {
+
+                        var result = (
+                                        LineNumber: codeLine.lineNumber,
+                                        LineType: codeLine.LineType,
+
+                                        Label: GetLinePart(lineParts, 2),
+                                        Command: GetLinePart(lineParts, 1),
+                                        ParameterA: GetLinePart(lineParts, 0),
+                                        ParameterB: string.Empty
+                                     );
+
+                        yield return result;
+
+                    } else if (lineParts.Length == 2) {
+
+                        var result = (
+                                        LineNumber: codeLine.lineNumber,
+                                        LineType: codeLine.LineType,
+
+                                        Label: GetLinePart(lineParts, 2),
+                                        Command: GetLinePart(lineParts, 1),
+                                        ParameterA: string.Empty,
+                                        ParameterB: string.Empty
+                                     );
+
+                        yield return result;
+
+                    } 
+
                 } else {
 
-                    bool assignmentEQU = GetLinePart(lineParts, 1).ToUpper() == nameof(RedCodeSpecialCommands.EQU);
+                    if(lineParts.Length == 3) {
 
-                    if (assignmentEQU) {
-                        if (linePartCount <= 3) {
+                        var result = (
+                                        LineNumber: codeLine.lineNumber,
+                                        LineType: codeLine.LineType,
 
-                            var result = (
-                                            LineNumber: codeLine.lineNumber,
-                                            LineType: codeLine.LineType,
+                                          Label: string.Empty,
+                                        Command: GetLinePart(lineParts, 2),
+                                        ParameterA: GetLinePart(lineParts, 1),
+                                        ParameterB: GetLinePart(lineParts, 0)
+                                     );
 
-                                            Label: string.Empty,
-                                            Command: GetLinePart(lineParts, 1),
-                                            ParameterA: GetLinePart(lineParts, 0),
-                                            ParameterB: GetLinePart(lineParts, 2)
-                                        );
+                        yield return result;
 
-                            yield return result;
-                        } else {
+                    } else if (lineParts.Length == 2) {
 
-                            var result = (
-                                              LineNumber: codeLine.lineNumber,
-                                              LineType: codeLine.LineType,
+                        var result = (
+                                        LineNumber: codeLine.lineNumber,
+                                        LineType: codeLine.LineType,
 
-                                              Label: string.Empty,
-                                              Command: GetLinePart(lineParts, 1),
-                                              ParameterA: GetLinePart(lineParts, 0),
-                                              ParameterB: GetLinePart(lineParts, 2)
-                                         );
+                                        Label: string.Empty,
+                                        Command: GetLinePart(lineParts, 1),
+                                        ParameterA: GetLinePart(lineParts, 0),
+                                        ParameterB: string.Empty
+                                     );
 
-                            yield return result;
-                        }
-                    } else {
-                        if (linePartCount <= 2) {
+                        yield return result;
 
-                            var result = (
-                                            LineNumber: codeLine.lineNumber,
-                                            LineType: codeLine.LineType,
+                    } else if (lineParts.Length == 1) {
 
-                                            Label: string.Empty,
-                                            Command: GetLinePart(lineParts, 1),
-                                            ParameterA: GetLinePart(lineParts, 0),
-                                            ParameterB: string.Empty
-                                        );
+                        var result = (
+                                        LineNumber: codeLine.lineNumber,
+                                        LineType: codeLine.LineType,
 
-                            yield return result;
-                        } else {
+                                        Label: string.Empty,
+                                        Command: GetLinePart(lineParts, 0),
+                                        ParameterA: string.Empty,
+                                        ParameterB: string.Empty
+                                     );
 
-                            var result = (
-                                           LineNumber: codeLine.lineNumber,
-                                           LineType: codeLine.LineType,
+                        yield return result;
 
-                                           Label: GetLinePart(lineParts, 3),
-                                           Command: GetLinePart(lineParts, 2),
-                                           ParameterA: GetLinePart(lineParts, 1),
-                                           ParameterB: GetLinePart(lineParts, 0)
-                                         );
-
-                            yield return result;
-                        }
                     }
                 }
             }
