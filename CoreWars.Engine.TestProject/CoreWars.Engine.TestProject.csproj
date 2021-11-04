@@ -10,6 +10,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="TokenizerAndLintSmokeUnitTestSamples\Example000.redcode.txt" />
     <None Remove="TokenizerSmokeUnitTestSamples\Example000.redcode.txt" />
     <None Remove="TokenizerSmokeUnitTestSamples\Example001.redcode.txt" />
     <None Remove="TokenizerSmokeUnitTestSamples\Example002.redcode.txt" />
@@ -54,6 +55,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="TokenizerAndLintSmokeUnitTestSamples\Example000.redcode.txt" />
     <EmbeddedResource Include="TokenizerSmokeUnitTestSamples\Example000.redcode.txt" />
     <EmbeddedResource Include="TokenizerSmokeUnitTestSamples\Example040.redcode.txt" />
     <EmbeddedResource Include="TokenizerSmokeUnitTestSamples\Example039.redcode.txt" />

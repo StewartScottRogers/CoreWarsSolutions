@@ -2,8 +2,8 @@
 using System.IO;
 using System.Reflection;
 
-namespace CoreWars.Engine.TokenizerSmokeUnitTestSamples {
-    internal static class TokenizerSmokeUnitTestSamplesStorage {
+namespace CoreWars.Engine.TokenizerAndLintSmokeUnitTestSamples {
+    internal static class TokenizerAndLintSmokeUnitTestSamplesStorage {
 
         public static (string Name, string Cotent, IEnumerable<(int lineNumber, string line)> Codelines) GetExample000() => GetEmbeddedProgram("Example000.redcode");
 
@@ -53,7 +53,7 @@ namespace CoreWars.Engine.TokenizerSmokeUnitTestSamples {
 
         private static (string Name, string Cotent, IEnumerable<(int lineNumber, string line)> Codelines) GetEmbeddedProgram(string programName) {
             var assembly = Assembly.GetExecutingAssembly();
-            var resourceName = $"CoreWars.Engine.TokenizerSmokeUnitTestSamples.{programName}.txt";
+            var resourceName = $"CoreWars.Engine.TokenizerAndLintSmokeUnitTestSamples.{programName}.txt";
 
             using (Stream stream = assembly.GetManifestResourceStream(resourceName))
             using (StreamReader streamReader = new StreamReader(stream)) {

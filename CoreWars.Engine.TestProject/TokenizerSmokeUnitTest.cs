@@ -1,11 +1,18 @@
 using System;
 using System.Collections.Generic;
 
-using CoreWars.Engine.RedCodePrograms;
+using CoreWars.Engine.TokenizerSmokeUnitTestSamples;
 
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace CoreWars.Engine {
+
+    /// <summary>
+    /// Tokenizes CorWars-RedCode examples gathered from the internet.
+    /// This smoke test does not guarantee the tokenizer is working correectly.
+    /// This smoke test of the Tokenizer guarentees that it will not throw 
+    /// exception, and provides a means for visual inspections when questions arise.
+    /// </summary>
 
     [TestClass]
     public class TokenizerSmokeUnitTest {
