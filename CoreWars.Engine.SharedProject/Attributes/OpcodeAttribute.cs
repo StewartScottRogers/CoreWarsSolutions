@@ -4,10 +4,10 @@ using CoreWars.Engine.Attributes.Library;
 
 namespace CoreWars.Engine.Attributes {
     internal sealed class OpcodeAttribute : SymbolAttribute {
-        public OpcodeAttribute(Boolean symbolEnabled, String symbol) : base(symbolEnabled, symbol) { }
+        public OpcodeAttribute(Boolean mnemonicEnabled, String mnemonic) : base(mnemonicEnabled, mnemonic) { }
 
-        public OpcodeAttribute(Boolean symbolEnabled, String symbol, String description) : base(symbolEnabled, symbol, description) { }
+        public OpcodeAttribute(Boolean mnemonicEnabled, String mnemonic, String description) : base(mnemonicEnabled, mnemonic, description) { }
 
-        public OpcodeAttribute(Boolean symbolEnabled, String symbol, String description, String example) : base(symbolEnabled, symbol, description, example) { }
+        public OpcodeAttribute(Boolean mnemonicEnabled, String mnemonic, String description, String example) : base(mnemonicEnabled, mnemonic, description, example) { }
     }
 }

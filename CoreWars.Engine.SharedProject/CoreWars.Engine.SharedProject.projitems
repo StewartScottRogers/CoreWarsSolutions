@@ -10,15 +10,16 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)Attributes\Library\SymbolAttribute.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Attributes\AddressingModeAttribute.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Attributes\SpecialCommandAttribute.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Attributes\AddressAttribute.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Attributes\DirectiveAttribute.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Attributes\Library\SymbolAttributeExtentions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extentions\ByteExtentions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Attributes\OpcodeAttribute.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)MemoryCore.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Enumerations\AddressingModes.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Enumerations\Opcodes.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Enumerations\AddressTypes.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Enumerations\OpcodeTypes.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extentions\TokenizerExtentions.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Enumerations\SpecialCommands.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Enumerations\DirectiveTypes.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Attributes\Library\" />

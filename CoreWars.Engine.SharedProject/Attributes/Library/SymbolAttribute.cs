@@ -2,35 +2,49 @@
 
 namespace CoreWars.Engine.Attributes.Library {
     internal class SymbolAttribute : Attribute {
-        public bool SymbolEnabled { get; private set; }
 
-        public string Symbol { get; private set; }
+        /// <summary>
+        /// If enabled the Symbol is available to the interpreter / compiler tool chain.
+        /// </summary>
+        public bool MnemonicEnabled { get; private set; }
 
+        /// <summary>
+        /// Symbol used by the interpreter / compiler for converting asm to binnary
+        /// </summary>
+        public string Mnemonic { get; private set; }
+
+        /// <summary>
+        /// Description is provides in documentation to the end user.
+        /// </summary>
         public string Description { get; private set; }
 
+
+        /// <summary>
+        /// Example is provides in documentation to the end user.
+        /// </summary>
         public string Example { get; private set; }
 
-        public SymbolAttribute(bool symbolEnabled, string symbol) {
-            SymbolEnabled = symbolEnabled;
-            Symbol = symbol.Trim().ToLower();
+        public SymbolAttribute(bool mnemonicEnabled, string mnemonic) {
+            MnemonicEnabled = mnemonicEnabled;
+            Mnemonic = mnemonic.Trim().ToLower();
             Description = string.Empty;
             Example = string.Empty;
         }
 
-        public SymbolAttribute(bool symbolEnabled, string symbol, string description) {
-            SymbolEnabled = symbolEnabled;
-            Symbol = symbol.Trim().ToLower();
-            Description = description;
+        public SymbolAttribute(bool mnemonicEnabled, string mnemonic, string description) {
+            MnemonicEnabled = mnemonicEnabled;
+            Mnemonic = mnemonic.Trim().ToLower();
+            Description = description.Trim();
             Example = string.Empty;
         }
 
-        public SymbolAttribute(bool symbolEnabled, string symbol, string description, string example) {
-            SymbolEnabled = symbolEnabled;
-            Symbol = symbol.Trim().ToLower();
-            Description = description;
-            Example = example;
+        public SymbolAttribute(bool mnemonicEnabled, string mnemonic, string description, string example) {
+            MnemonicEnabled = mnemonicEnabled;
+            Mnemonic = mnemonic.Trim().ToLower();
+            Description = description.Trim();
+            Example = example.Trim();
         }
 
-        public override String ToString() => $"{SymbolEnabled} {Symbol}, '{Description}', '{Example}'.";
+        public override String ToString() => $"{MnemonicEnabled} {Mnemonic}, '{Description}', '{Example}'.";
     }
 }
