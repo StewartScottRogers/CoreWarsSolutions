@@ -23,7 +23,13 @@ namespace CoreWars.Engine.Attributes {
             if (symbolAttribute != null && symbolAttribute.Any())
                 return symbolAttribute.First();
 
-            return new SymbolAttribute(mnemonicEnabled: false, mnemonic: "", description: "NO ATTRIBUTE FOUND ON ENUM!", example: ""); ;
+            return new SymbolAttribute(
+                                            mnemonicEnabled: false, 
+                                            mnemonic: "",
+                                            standard: "",
+                                            description: "NO ATTRIBUTE FOUND ON ENUM!", 
+                                            example: ""
+                                       );
         }
     }
 }

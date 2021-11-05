@@ -12,6 +12,5 @@ namespace CoreWars.Engine {
             Console.WriteLine(string.Join(Environment.NewLine, SymbolLibrary.Symbols().ToStrings()));
         }
 
-      
     }
 }

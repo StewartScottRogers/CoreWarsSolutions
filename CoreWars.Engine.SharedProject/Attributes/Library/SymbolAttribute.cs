@@ -14,6 +14,11 @@ namespace CoreWars.Engine.Attributes.Library {
         public string Mnemonic { get; private set; }
 
         /// <summary>
+        ///  Draft Standard
+        /// </summary>
+        public string Standard { get; private set; }
+
+        /// <summary>
         /// Description is provides in documentation to the end user.
         /// </summary>
         public string Description { get; private set; }
@@ -24,27 +29,30 @@ namespace CoreWars.Engine.Attributes.Library {
         /// </summary>
         public string Example { get; private set; }
 
-        public SymbolAttribute(bool mnemonicEnabled, string mnemonic) {
+        public SymbolAttribute(bool mnemonicEnabled, string mnemonic, string standard) {
             MnemonicEnabled = mnemonicEnabled;
             Mnemonic = mnemonic.Trim().ToLower();
+            Standard = standard.Trim().ToLower();   
             Description = string.Empty;
             Example = string.Empty;
         }
 
-        public SymbolAttribute(bool mnemonicEnabled, string mnemonic, string description) {
+        public SymbolAttribute(bool mnemonicEnabled, string mnemonic, string standard, string description) {
             MnemonicEnabled = mnemonicEnabled;
             Mnemonic = mnemonic.Trim().ToLower();
+            Standard = standard.Trim().ToLower();
             Description = description.Trim();
             Example = string.Empty;
         }
 
-        public SymbolAttribute(bool mnemonicEnabled, string mnemonic, string description, string example) {
+        public SymbolAttribute(bool mnemonicEnabled, string mnemonic, string standard, string description, string example) {
             MnemonicEnabled = mnemonicEnabled;
             Mnemonic = mnemonic.Trim().ToLower();
+            Standard = standard.Trim().ToLower();
             Description = description.Trim();
             Example = example.Trim();
         }
 
-        public override String ToString() => $"{MnemonicEnabled} {Mnemonic}, '{Description}', '{Example}'.";
+        public override String ToString() => $"{Standard}: {MnemonicEnabled} {Mnemonic}, '{Description}', '{Example}'.";
     }
 }
