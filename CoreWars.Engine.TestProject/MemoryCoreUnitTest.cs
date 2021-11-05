@@ -17,7 +17,7 @@ namespace CoreWars.Engine {
             MemoryCore memoryCore = new MemoryCore(coreSize: 64);
             Console.WriteLine(memoryCore.ToString());
             for (int memoryIndex = 0; memoryIndex < memoryCore.Size; memoryIndex++)
-                memoryCore.Write(memoryIndex, 1000);
+                memoryCore.Write(memoryIndex, 1);
             Console.WriteLine(memoryCore.ToString());
         }
 

@@ -15,6 +15,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)Attributes\Library\SymbolAttributeExtentions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Enumerations\MnemonicTypes.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extentions\AssemblerExtentions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extentions\Exceptions\AssemblerException.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extentions\Exceptions\AssemblerUnknownOpcodeTypeException.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extentions\HexExtentions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Attributes\OpcodeAttribute.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extentions\Exceptions\LinterAddressException.cs" />
@@ -27,6 +29,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Extentions\Exceptions\LinterUnknownCommandException.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extentions\Exceptions\LinterOpcodeException.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extentions\LinterExtentions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extentions\OpcodeExtentions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SymbolLibrary.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)MemoryCore.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Enumerations\AddressTypes.cs" />

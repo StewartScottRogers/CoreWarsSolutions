@@ -13,7 +13,7 @@ namespace CoreWars.Engine.Enumerations {
             description: "data (kills the process). - DAT A B: Remove executing process from process queue if executed..",
             example: "DAT"
         )]
-        DAT = 1,
+        DAT,
 
         [Opcode(
             mnemonicEnabled: true,
@@ -24,7 +24,7 @@ namespace CoreWars.Engine.Enumerations {
             description: "move (copies data from one address to another). - MOV A B: move A to B.",
             example: "MOV [a] [b]"
         )]
-        MOV = 2,
+        MOV,
 
         [Opcode(
             mnemonicEnabled: true,
@@ -35,7 +35,7 @@ namespace CoreWars.Engine.Enumerations {
             description: "add (adds one number to another). - ADD A B: add A to B.",
             example: "ADD  [a] [b]"
         )]
-        ADD = 3,
+        ADD,
 
         [Opcode(
             mnemonicEnabled: true,
@@ -46,7 +46,7 @@ namespace CoreWars.Engine.Enumerations {
             description: "subtract (subtracts one number from another). - SUB A B: subtract A from B.",
             example: "SUB  [a] [b]"
         )]
-        SUB = 4,
+        SUB,
 
         [Opcode(
             mnemonicEnabled: true,
@@ -57,7 +57,7 @@ namespace CoreWars.Engine.Enumerations {
             description: "jump (continues execution from another address). - JMP A: jump to A.",
             example: "JMP [a]"
         )]
-        JMP = 5,
+        JMP,
 
         [Opcode(
             mnemonicEnabled: true,
@@ -68,7 +68,7 @@ namespace CoreWars.Engine.Enumerations {
             description: " Decrement contents of location A by 1. If location A now holds 0, jump to location B, otherwise continue with next instruction.",
             example: "DJZ [a] [b]"
         )]
-        DJZ = 6,
+        DJZ,
 
         [Opcode(
             mnemonicEnabled: true,
@@ -79,7 +79,7 @@ namespace CoreWars.Engine.Enumerations {
             description: "compare (same as SEQ). - CMP A B: if A equals B, then skip the next instruction.",
             example: "CMP [a] [b]"
          )]
-        CMP = 7,
+        CMP,
 
 
         // The ICWS- ++
@@ -93,7 +93,7 @@ namespace CoreWars.Engine.Enumerations {
             description: "jump if zero (tests a number and jumps to an address if it's 0). - JMZ A B: jump to A if B is zero.",
             example: "JMZ [a] [b]"
         )]
-        JMZ = 8,
+        JMZ = 7,
 
         [Opcode(
             mnemonicEnabled: false,
@@ -104,7 +104,7 @@ namespace CoreWars.Engine.Enumerations {
             description: "jump if not zero (tests a number and jumps if it isn't 0). - JMN A B: jump to A if B  is not zero.",
             example: "JMN [a] [b]"
         )]
-        JMN = 9,
+        JMN,
 
         [Opcode(
             mnemonicEnabled: false,
@@ -115,7 +115,7 @@ namespace CoreWars.Engine.Enumerations {
             description: "skip if lower than (compares two values, and skips the next instruction if the first is lower than the second). - SLT A B: if A is less than B then skip next instruction.",
             example: "SLT [a] [b]"
         )]
-        SLT = 10,
+        SLT,
 
         [Opcode(
             mnemonicEnabled: false,
@@ -126,7 +126,7 @@ namespace CoreWars.Engine.Enumerations {
             description: "decrement and jump if not zero (decrements a number by one, and jumps unless the result is 0). - DJN  A B: decrement B; if B is not zero then jump to A",
             example: "DNJ [a] [b]"
         )]
-        DJN = 11,
+        DJN,
 
         [Opcode(
             mnemonicEnabled: false,
@@ -137,7 +137,7 @@ namespace CoreWars.Engine.Enumerations {
             description: "split (starts a second process at another address). place A in the process queue. - A B: place A  in  the process queue",
             example: "SPL [a]"
         )]
-        SPL = 12,
+        SPL,
 
         [Opcode(
             mnemonicEnabled: false,
@@ -148,7 +148,7 @@ namespace CoreWars.Engine.Enumerations {
             description: "multiply (multiplies one number with another).",
             example: ""
         )]
-        MUL = 13,
+        MUL,
 
         [Opcode(
             mnemonicEnabled: false,
@@ -159,7 +159,7 @@ namespace CoreWars.Engine.Enumerations {
             description: "divide (divides one number with another).",
             example: ""
         )]
-        DIV = 14,
+        DIV,
 
         [Opcode(
             mnemonicEnabled: false,
@@ -170,7 +170,7 @@ namespace CoreWars.Engine.Enumerations {
             description: "modulus (divides one number with another and gives the remainder).",
             example: ""
         )]
-        MOD = 15,
+        MOD,
 
         [Opcode(
             mnemonicEnabled: false,
@@ -181,7 +181,7 @@ namespace CoreWars.Engine.Enumerations {
             description: "skip if equal (compares two instructions, and skips the next instruction if they are equal).",
             example: ""
         )]
-        SEQ = 16,
+        SEQ,
 
         [Opcode(
             mnemonicEnabled: false,
@@ -192,7 +192,7 @@ namespace CoreWars.Engine.Enumerations {
             description: "skip if not equal (compares two instructions, and skips the next instruction if they aren't equal).",
             example: ""
         )]
-        SNE = 17,
+        SNE,
 
         [Opcode(
             mnemonicEnabled: false,
@@ -203,7 +203,7 @@ namespace CoreWars.Engine.Enumerations {
             description: "no operation(does nothing).",
             example: ""
         )]
-        NOP = 18,
+        NOP,
 
     }
 }
