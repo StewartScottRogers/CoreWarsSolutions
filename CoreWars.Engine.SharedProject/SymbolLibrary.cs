@@ -63,6 +63,15 @@ namespace CoreWars.Engine {
             }
         }
 
+        public static Dictionary<string,(string MnemonicType, string Mnemonic, string Description, string Example)> ToSymbolsDictionary(this IEnumerable<(string MnemonicType, string Mnemonic, string Description, string Example)> symbols) {
+            var symbolDictionary = new Dictionary<string, (string MnemonicType, string Mnemonic, string Description, string Example)>();
+            
+            foreach (var symbol in symbols)
+                symbolDictionary.Add(symbol.Mnemonic, symbol);
+
+            return symbolDictionary;
+        }
+
         public static IEnumerable<string> ToStrings(this IEnumerable<(string MnemonicType, string Mnemonic, string Description, string Example)> symbols) {
 
             StringBuilder stringBuilderPre = new();
