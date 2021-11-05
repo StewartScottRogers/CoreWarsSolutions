@@ -21,14 +21,17 @@ namespace CoreWars.Engine {
 
             foreach ((Int32 LineNumber, String LineType, String Label, String Command, String ParameterA, String ParameterB) codeLine in codeLines) {
 
-                if(OpcodeDictionary.ContainsKey(codeLine.Command))
+                if (DirectiveDictionary.ContainsKey(codeLine.Command)) {
+
+
                     yield return codeLine;
+                } else if (OpcodeDictionary.ContainsKey(codeLine.Command)) {
 
-                if (DirectiveDictionary.ContainsKey(codeLine.Command))
+
                     yield return codeLine;
-
-
-                yield return codeLine;
+                } else {
+                    throw new LinterUnknownCommandException(codeLine);
+                }
             }
 
         }

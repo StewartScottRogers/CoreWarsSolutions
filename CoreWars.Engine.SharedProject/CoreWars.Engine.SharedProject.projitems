@@ -19,6 +19,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Extentions\Exceptions\LinterAddressException.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extentions\Exceptions\LinterDirectiveException.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extentions\Exceptions\LinterException.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extentions\Exceptions\LinterUnknownCommandException.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extentions\Exceptions\LinterOpcodeException.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extentions\LinterExtentions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SymbolLibrary.cs" />
