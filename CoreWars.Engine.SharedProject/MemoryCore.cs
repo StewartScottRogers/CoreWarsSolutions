@@ -17,8 +17,8 @@ namespace CoreWars.Engine {
         public byte Read(int memoryIndex) 
             => Buffer[GetSafeBufferIndex(memoryIndex)];
 
-        public void Write(int memoryIndex, byte memoryByte) =>
-            Buffer[GetSafeBufferIndex(memoryIndex)] = memoryByte;
+        public void Write(int memoryIndex, byte memoryByte)
+            => Buffer[GetSafeBufferIndex(memoryIndex)] = memoryByte;
         
         public int Size { get => Buffer.Length; }
 
