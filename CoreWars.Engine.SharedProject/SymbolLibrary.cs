@@ -10,7 +10,7 @@ using CoreWars.Engine.Enumerations;
 namespace CoreWars.Engine {
     internal static class SymbolLibrary {
 
-        public static IEnumerable<(string MnemonicType, string Mnemonic, string Description, string Example)> Symbols() {
+        public static IEnumerable<(MnemonicTypes MnemonicType, string Mnemonic, string Description, string Example)> Symbols() {
             foreach (var symbol in OpcodeSymbols())
                 yield return symbol;
 
@@ -21,13 +21,13 @@ namespace CoreWars.Engine {
                 yield return symbol;
         }
 
-        public static IEnumerable<(string MnemonicType, string Mnemonic, string Description, string Example)> OpcodeSymbols() {
+        public static IEnumerable<(MnemonicTypes MnemonicType, string Mnemonic, string Description, string Example)> OpcodeSymbols() {
             OpcodeTypes[] opcodeTypes = Enum.GetValues(typeof(OpcodeTypes)).Cast<OpcodeTypes>().ToArray();
             foreach (OpcodeTypes opcodeType in opcodeTypes) {
                 SymbolAttribute symbolAttribute = opcodeType.GetSymbol();
                 if (symbolAttribute.MnemonicEnabled)
                     yield return (
-                                    MnemonicType: "Opcode",
+                                    MnemonicType: MnemonicTypes.Opcode,
                                     Mnemonic: symbolAttribute.Mnemonic,
                                     Description: symbolAttribute.Description,
                                     Example: symbolAttribute.Example
@@ -35,13 +35,13 @@ namespace CoreWars.Engine {
             }
         }
 
-        public static IEnumerable<(string MnemonicType, string Mnemonic, string Description, string Example)> AddressSymbols() {
+        public static IEnumerable<(MnemonicTypes MnemonicType, string Mnemonic, string Description, string Example)> AddressSymbols() {
             AddressTypes[] addressTypes = Enum.GetValues(typeof(AddressTypes)).Cast<AddressTypes>().ToArray();
             foreach (AddressTypes addressType in addressTypes) {
                 SymbolAttribute symbolAttribute = addressType.GetSymbol();
                 if (symbolAttribute.MnemonicEnabled)
                     yield return (
-                                    MnemonicType: "Address",
+                                    MnemonicType: MnemonicTypes.Address,
                                     Mnemonic: symbolAttribute.Mnemonic,
                                     Description: symbolAttribute.Description,
                                     Example: symbolAttribute.Example
@@ -49,13 +49,13 @@ namespace CoreWars.Engine {
             }
         }
 
-        public static IEnumerable<(string MnemonicType, string Mnemonic, string Description, string Example)> DirectiveSymbols() {
+        public static IEnumerable<(MnemonicTypes MnemonicType, string Mnemonic, string Description, string Example)> DirectiveSymbols() {
             DirectiveTypes[] directiveTypes = Enum.GetValues(typeof(DirectiveTypes)).Cast<DirectiveTypes>().ToArray();
             foreach (DirectiveTypes directiveType in directiveTypes) {
                 SymbolAttribute symbolAttribute = directiveType.GetSymbol();
                 if (symbolAttribute.MnemonicEnabled)
                     yield return (
-                                    MnemonicType: "Directive",
+                                    MnemonicType: MnemonicTypes.Directive,
                                     Mnemonic: symbolAttribute.Mnemonic,
                                     Description: symbolAttribute.Description,
                                     Example: symbolAttribute.Example
@@ -63,8 +63,8 @@ namespace CoreWars.Engine {
             }
         }
 
-        public static Dictionary<string,(string MnemonicType, string Mnemonic, string Description, string Example)> ToSymbolsDictionary(this IEnumerable<(string MnemonicType, string Mnemonic, string Description, string Example)> symbols) {
-            var symbolDictionary = new Dictionary<string, (string MnemonicType, string Mnemonic, string Description, string Example)>();
+        public static Dictionary<string,(MnemonicTypes MnemonicType, string Mnemonic, string Description, string Example)> ToSymbolsDictionary(this IEnumerable<(MnemonicTypes MnemonicType, string Mnemonic, string Description, string Example)> symbols) {
+            var symbolDictionary = new Dictionary<string, (MnemonicTypes MnemonicType, string Mnemonic, string Description, string Example)>();
             
             foreach (var symbol in symbols)
                 symbolDictionary.Add(symbol.Mnemonic, symbol);
@@ -72,7 +72,7 @@ namespace CoreWars.Engine {
             return symbolDictionary;
         }
 
-        public static IEnumerable<string> ToStrings(this IEnumerable<(string MnemonicType, string Mnemonic, string Description, string Example)> symbols) {
+        public static IEnumerable<string> ToStrings(this IEnumerable<(MnemonicTypes MnemonicType, string Mnemonic, string Description, string Example)> symbols) {
 
             StringBuilder stringBuilderPre = new();
 
@@ -83,7 +83,7 @@ namespace CoreWars.Engine {
 
             yield return stringBuilderPre.ToString().Trim();
 
-            foreach ((string MnemonicType, String Mnemonic, String Description, String Example) symbol in symbols) {
+            foreach ((MnemonicTypes MnemonicType, String Mnemonic, String Description, String Example) symbol in symbols) {
 
                 StringBuilder stringBuilderSymbol = new();
 

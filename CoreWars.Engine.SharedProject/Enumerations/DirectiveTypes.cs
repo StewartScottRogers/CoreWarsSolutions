@@ -7,6 +7,8 @@ namespace CoreWars.Engine.Enumerations {
         [Directive(
             mnemonicEnabled: false,
             mnemonic: "EQU",
+            parameterRequiredA: true,
+            parameterRequiredB: false,
             standard: "",
             description: "Assigns value to a variable.",
             example: "[value] EQU [variable]"
@@ -16,6 +18,8 @@ namespace CoreWars.Engine.Enumerations {
         [Directive(
             mnemonicEnabled: false,
             mnemonic: "ORG",
+            parameterRequiredA: true,
+            parameterRequiredB: false,
             standard: "",
             description: "takes one parameter, which identifies the start location.",
             example: "ORG <post description>"
@@ -25,6 +29,8 @@ namespace CoreWars.Engine.Enumerations {
         [Directive(
             mnemonicEnabled: false,
             mnemonic: "END",
+            parameterRequiredA: false,
+            parameterRequiredB: false,
             standard: "",
             description: "Stops compilation, further lines are treated as comments.",
             example: "END <post description>"
@@ -34,6 +40,8 @@ namespace CoreWars.Engine.Enumerations {
         [Directive(
             mnemonicEnabled: false,
             mnemonic: "FOR",
+            parameterRequiredA: true,
+            parameterRequiredB: false,
             standard: "",
             description: "For Interations",
             example: "For [A]"
@@ -43,6 +51,8 @@ namespace CoreWars.Engine.Enumerations {
         [Directive(
             mnemonicEnabled: false,
             mnemonic: "ROF",
+            parameterRequiredA: false,
+            parameterRequiredB: false,
             standard: "",
             description: "End of For Interations",
             example: "ROF"

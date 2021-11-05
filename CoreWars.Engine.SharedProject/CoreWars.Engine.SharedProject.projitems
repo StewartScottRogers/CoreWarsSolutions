@@ -13,6 +13,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Attributes\AddressAttribute.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Attributes\DirectiveAttribute.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Attributes\Library\SymbolAttributeExtentions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Enumerations\MnemonicTypes.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extentions\AssemblerExtentions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extentions\ByteExtentions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Attributes\OpcodeAttribute.cs" />
@@ -32,6 +33,5 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Attributes\Library\" />
-    <Folder Include="$(MSBuildThisFileDirectory)Enumerations\" />
   </ItemGroup>
 </Project>

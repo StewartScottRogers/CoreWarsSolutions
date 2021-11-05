@@ -1,18 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 
+using CoreWars.Engine.Enumerations;
 using CoreWars.Engine.Extentions.Exceptions;
 
 namespace CoreWars.Engine {
     internal static class LinterExtentions {
 
-        private static Dictionary<String, (String MnemonicType, String Mnemonic, String Description, String Example)> OpcodeDictionary
+        private static Dictionary<String, (MnemonicTypes MnemonicType, String Mnemonic, String Description, String Example)> OpcodeDictionary
                = SymbolLibrary.OpcodeSymbols().ToSymbolsDictionary();
 
-        private static Dictionary<String, (String MnemonicType, String Mnemonic, String Description, String Example)> DirectiveDictionary
+        private static Dictionary<String, (MnemonicTypes MnemonicType, String Mnemonic, String Description, String Example)> DirectiveDictionary
             = SymbolLibrary.DirectiveSymbols().ToSymbolsDictionary();
 
-        private static Dictionary<String, (String MnemonicType, String Mnemonic, String Description, String Example)> AddressDictionary
+        private static Dictionary<String, (MnemonicTypes MnemonicType, String Mnemonic, String Description, String Example)> AddressDictionary
             = SymbolLibrary.AddressSymbols().ToSymbolsDictionary();
 
 
