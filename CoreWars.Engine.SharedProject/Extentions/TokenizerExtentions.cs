@@ -158,8 +158,7 @@ namespace CoreWars.Engine {
             }
         }
 
-        private static string
-            GetLinePart(string[] lineParts, int index) {
+        private static string GetLinePart(string[] lineParts, int index) {
             if (lineParts.Length > index) {
                 string linePart = lineParts[index].Trim();
                 if (linePart.EndsWith(","))
