@@ -5,7 +5,7 @@ namespace CoreWars.Engine.Enumerations {
     internal enum DirectiveTypes {
 
         [Directive(
-            mnemonicEnabled: true,
+            mnemonicEnabled: false,
             mnemonic: "EQU",
             standard: "",
             description: "Assigns value to a variable.",

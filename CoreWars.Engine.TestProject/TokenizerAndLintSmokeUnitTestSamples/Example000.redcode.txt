@@ -3,3 +3,8 @@
 ; Test Name: 
 ;
 ;
+; Imp
+; by A. K. Dewdney
+;
+imp     MOV imp, imp+1      ; This program copies itself ahead one
+        END                 ; instruction and moves through memory.
