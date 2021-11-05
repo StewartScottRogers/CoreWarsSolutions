@@ -9,12 +9,12 @@ namespace CoreWars.Engine.Attributes {
 
     internal static class SymbolAttributeExtentions {
 
-        public static SymbolAttribute GetSymbol(this AddressTypes value) => GetSymbol(value);
-        public static SymbolAttribute GetSymbol(this OpcodeTypes value) => GetSymbol(value);
-        public static SymbolAttribute GetSymbol(this DirectiveTypes value) => GetSymbol(value);
+        public static SymbolAttribute GetSymbol(this AddressTypes value) => GetSymbolAttribute(value);
+        public static SymbolAttribute GetSymbol(this OpcodeTypes value) => GetSymbolAttribute(value);
+        public static SymbolAttribute GetSymbol(this DirectiveTypes value) => GetSymbolAttribute(value);
 
 
-        private static SymbolAttribute GetSymbol(Enum value) {
+        private static SymbolAttribute GetSymbolAttribute(Enum value) {
             FieldInfo fieldInfo = value.GetType().GetField(value.ToString());
 
             SymbolAttribute[] symbolAttribute

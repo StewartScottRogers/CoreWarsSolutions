@@ -16,7 +16,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Extentions\AssemblerExtentions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extentions\ByteExtentions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Attributes\OpcodeAttribute.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Extentions\LinterExtentions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SymbolLibrary.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)MemoryCore.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Enumerations\AddressTypes.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Enumerations\OpcodeTypes.cs" />
