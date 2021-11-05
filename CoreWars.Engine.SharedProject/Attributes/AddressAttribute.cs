@@ -12,5 +12,14 @@ namespace CoreWars.Engine.Attributes {
 
         public AddressAttribute(Boolean mnemonicEnabled, String mnemonic, String standard, String description, String example) : base(mnemonicEnabled, mnemonic, standard, description, example) {
         }
+
+        public AddressAttribute(Boolean mnemonicEnabled, String mnemonic, Boolean parameterRequiredA, Boolean parameterRequiredB, String standard) : base(mnemonicEnabled, mnemonic, parameterRequiredA, parameterRequiredB, standard) {
+        }
+
+        public AddressAttribute(Boolean mnemonicEnabled, String mnemonic, String standard, Boolean parameterRequiredA, Boolean parameterRequiredB, String description) : base(mnemonicEnabled, mnemonic, standard, parameterRequiredA, parameterRequiredB, description) {
+        }
+
+        public AddressAttribute(Boolean mnemonicEnabled, String mnemonic, String standard, Boolean parameterRequiredA, Boolean parameterRequiredB, String description, String example) : base(mnemonicEnabled, mnemonic, standard, parameterRequiredA, parameterRequiredB, description, example) {
+        }
     }
 }

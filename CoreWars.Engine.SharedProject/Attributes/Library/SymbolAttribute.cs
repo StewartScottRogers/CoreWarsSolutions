@@ -14,6 +14,16 @@ namespace CoreWars.Engine.Attributes.Library {
         public string Mnemonic { get; private set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        public bool ParameterRequiredA { get; private set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool ParameterRequiredB { get; private set; }
+
+        /// <summary>
         ///  Draft Standard
         /// </summary>
         public string Standard { get; private set; }
@@ -32,6 +42,8 @@ namespace CoreWars.Engine.Attributes.Library {
         public SymbolAttribute(bool mnemonicEnabled, string mnemonic, string standard) {
             MnemonicEnabled = mnemonicEnabled;
             Mnemonic = mnemonic.Trim().ToLower();
+            ParameterRequiredA = false;
+            ParameterRequiredB = false;
             Standard = standard.Trim().ToLower();   
             Description = string.Empty;
             Example = string.Empty;
@@ -40,6 +52,8 @@ namespace CoreWars.Engine.Attributes.Library {
         public SymbolAttribute(bool mnemonicEnabled, string mnemonic, string standard, string description) {
             MnemonicEnabled = mnemonicEnabled;
             Mnemonic = mnemonic.Trim().ToLower();
+            ParameterRequiredA = false;
+            ParameterRequiredB = false;
             Standard = standard.Trim().ToLower();
             Description = description.Trim();
             Example = string.Empty;
@@ -48,6 +62,42 @@ namespace CoreWars.Engine.Attributes.Library {
         public SymbolAttribute(bool mnemonicEnabled, string mnemonic, string standard, string description, string example) {
             MnemonicEnabled = mnemonicEnabled;
             Mnemonic = mnemonic.Trim().ToLower();
+            ParameterRequiredA = false;
+            ParameterRequiredB = false;
+            Standard = standard.Trim().ToLower();
+            Description = description.Trim();
+            Example = example.Trim();
+        }
+
+
+
+
+
+        public SymbolAttribute(bool mnemonicEnabled, string mnemonic, bool parameterRequiredA, bool parameterRequiredB, string standard) {
+            MnemonicEnabled = mnemonicEnabled;
+            Mnemonic = mnemonic.Trim().ToLower();
+            ParameterRequiredA = parameterRequiredA;
+            ParameterRequiredB = parameterRequiredB;
+            Standard = standard.Trim().ToLower();
+            Description = string.Empty;
+            Example = string.Empty;
+        }
+
+        public SymbolAttribute(bool mnemonicEnabled, string mnemonic, string standard, bool parameterRequiredA, bool parameterRequiredB, string description) {
+            MnemonicEnabled = mnemonicEnabled;
+            Mnemonic = mnemonic.Trim().ToLower();
+            ParameterRequiredA = parameterRequiredA;
+            ParameterRequiredB = parameterRequiredB;
+            Standard = standard.Trim().ToLower();
+            Description = description.Trim();
+            Example = string.Empty;
+        }
+
+        public SymbolAttribute(bool mnemonicEnabled, string mnemonic, string standard, bool parameterRequiredA, bool parameterRequiredB, string description, string example) {
+            MnemonicEnabled = mnemonicEnabled;
+            Mnemonic = mnemonic.Trim().ToLower();
+            ParameterRequiredA = parameterRequiredA;
+            ParameterRequiredB = parameterRequiredB;
             Standard = standard.Trim().ToLower();
             Description = description.Trim();
             Example = example.Trim();
