@@ -9,15 +9,15 @@ namespace CoreWars.Engine {
 
         [TestMethod]
         public void Display_New_MemoryCore_As_String() {
-            Console.WriteLine(new MemoryCore(eightyByteBufferChunkCount: 3).ToString());
+            Console.WriteLine(new MemoryCore(coreSize: 64).ToString());
         }
 
         [TestMethod]
         public void Display_MemoryCore_Before_And_After_Overwriting_As_String() {
-            MemoryCore memoryCore = new MemoryCore(eightyByteBufferChunkCount: 3);
+            MemoryCore memoryCore = new MemoryCore(coreSize: 64);
             Console.WriteLine(memoryCore.ToString());
             for (int memoryIndex = 0; memoryIndex < memoryCore.Size; memoryIndex++)
-                memoryCore.Write(memoryIndex, Convert.ToByte('A'));
+                memoryCore.Write(memoryIndex, 1000);
             Console.WriteLine(memoryCore.ToString());
         }
 

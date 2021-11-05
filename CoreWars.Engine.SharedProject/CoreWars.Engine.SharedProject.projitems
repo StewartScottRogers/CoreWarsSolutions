@@ -15,7 +15,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Attributes\Library\SymbolAttributeExtentions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Enumerations\MnemonicTypes.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extentions\AssemblerExtentions.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Extentions\ByteExtentions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extentions\HexExtentions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Attributes\OpcodeAttribute.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extentions\Exceptions\LinterAddressException.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extentions\Exceptions\LinterDirectiveException.cs" />
