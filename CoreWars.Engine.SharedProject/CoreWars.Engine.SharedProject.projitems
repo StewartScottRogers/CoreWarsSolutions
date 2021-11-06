@@ -29,7 +29,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Extentions\Exceptions\LinterUnknownCommandException.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extentions\Exceptions\LinterOpcodeException.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extentions\LinterExtentions.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Extentions\OpcodeExtentions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extentions\AssemblerOpcodeExtentions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SymbolLibrary.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)MemoryCore.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Enumerations\AddressTypes.cs" />
