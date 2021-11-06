@@ -20,13 +20,13 @@ namespace CoreWars.Engine {
             Buffer = new short[BufferChunkSize * BufferChunkCount];
         }
 
-        public int Read(int memoryIndex)
+        public int Read(short memoryIndex)
             => Buffer[GetSafeBufferIndex(memoryIndex)];
 
-        public void Write(int memoryIndex, short memoryByte)
-            => Buffer[GetSafeBufferIndex(memoryIndex)] = memoryByte;
+        public void Write(short memoryIndex, short memoryValue)
+            => Buffer[GetSafeBufferIndex(memoryIndex)] = memoryValue;
 
-        public int Size { get => Buffer.Length; }
+        public short Size { get => (short)Buffer.Length; }
 
         public override String ToString() {
             StringBuilder stringBuilder = new StringBuilder();
@@ -41,6 +41,6 @@ namespace CoreWars.Engine {
             return stringBuilder.ToString();
         }
 
-        private int GetSafeBufferIndex(int memoryIndex) => (memoryIndex % Buffer.Length);
+        private short GetSafeBufferIndex(short memoryIndex) => (short)(memoryIndex % Size);
     }
 }

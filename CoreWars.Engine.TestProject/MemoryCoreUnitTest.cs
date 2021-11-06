@@ -16,7 +16,7 @@ namespace CoreWars.Engine {
         public void Display_MemoryCore_Before_And_After_Overwriting_As_String() {
             MemoryCore memoryCore = new MemoryCore(coreSize: 64);
             Console.WriteLine(memoryCore.ToString());
-            for (int memoryIndex = 0; memoryIndex < memoryCore.Size; memoryIndex++)
+            for (short memoryIndex = 0; memoryIndex < memoryCore.Size; memoryIndex++)
                 memoryCore.Write(memoryIndex, 1);
             Console.WriteLine(memoryCore.ToString());
         }
