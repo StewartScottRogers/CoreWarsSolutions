@@ -51,7 +51,7 @@ namespace CoreWars.Engine {
                     yield return codeLine;
 
                 } else {
-                    throw new LinterUnknownCommandException(codeLine);
+                    throw new LinterCommandUnknownException(codeLine);
                 }
             }
 

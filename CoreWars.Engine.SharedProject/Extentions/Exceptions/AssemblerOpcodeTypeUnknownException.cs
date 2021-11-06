@@ -3,8 +3,8 @@
 using CoreWars.Engine.Enumerations;
 
 namespace CoreWars.Engine.Extentions.Exceptions {
-    public class AssemblerUnknownOpcodeTypeException : AssemblerException {
-        public AssemblerUnknownOpcodeTypeException(OpcodeTypes opcodeType)
+    public class AssemblerOpcodeTypeUnknownException : AssemblerException {
+        public AssemblerOpcodeTypeUnknownException(OpcodeTypes opcodeType)
             : base($"Unknown Opcode '{opcodeType}'.") { }
     }
 }
