@@ -1,7 +1,5 @@
 ﻿using System;
 
-using CoreWars.Engine.Attributes.Library;
-
 namespace CoreWars.Engine.Attributes {
     internal sealed class OpcodeAttribute : SymbolAttribute {
         public OpcodeAttribute(Boolean mnemonicEnabled, String mnemonic, String standard) : base(mnemonicEnabled, mnemonic, standard) {

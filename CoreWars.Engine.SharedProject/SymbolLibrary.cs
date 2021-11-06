@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 
 using CoreWars.Engine.Attributes;
-using CoreWars.Engine.Attributes.Library;
 using CoreWars.Engine.Enumerations;
 
 namespace CoreWars.Engine {

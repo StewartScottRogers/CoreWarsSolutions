@@ -5,42 +5,44 @@ using CoreWars.Engine.Extentions;
 
 namespace CoreWars.Engine {
     internal class MemoryCore {
-        private const int DefaultChunkSize = 20;
-        private readonly short[] Buffer;
+        private const int DefaultMemoryCellsChunkSize = 20;
+        private readonly short[] MemoryCells;
 
-        private int BufferChunkCount = 1;
-        private int BufferChunkSize = DefaultChunkSize;
+        private int MemoryCellsChunkCount = 1;
+        private int MemoryCellsChunkSize = DefaultMemoryCellsChunkSize;
 
-        public MemoryCore(int coreSize = DefaultChunkSize * 8) {
-            BufferChunkSize = DefaultChunkSize / sizeof(short);
-            if (coreSize < BufferChunkSize)
-                coreSize = BufferChunkSize;
+        public MemoryCore(int memoryCellsSize = DefaultMemoryCellsChunkSize * 8) {
+            MemoryCellsChunkSize = DefaultMemoryCellsChunkSize / sizeof(short);
+            if (memoryCellsSize < MemoryCellsChunkSize)
+                memoryCellsSize = MemoryCellsChunkSize;
 
-            BufferChunkCount = (int)(coreSize / BufferChunkSize);
-            Buffer = new short[BufferChunkSize * BufferChunkCount];
+            MemoryCellsChunkCount = (int)(memoryCellsSize / MemoryCellsChunkSize);
+            MemoryCells = new short[MemoryCellsChunkSize * MemoryCellsChunkCount];
         }
 
-        public int Read(short memoryIndex)
-            => Buffer[GetSafeBufferIndex(memoryIndex)];
+        public (short MemoryCellPointer, short MemoryCell) AccessMemoryCell(short memoryCellPointer) {
+            short memoryCell = MemoryCells[GetSafeMemoryCellPointer(memoryCellPointer)];
+            return (memoryCellPointer, memoryCell);
+        }
 
-        public void Write(short memoryIndex, short memoryValue)
-            => Buffer[GetSafeBufferIndex(memoryIndex)] = memoryValue;
+        public void AccessMemoryCell(short memoryCellPointer, short memoryCell)
+            => MemoryCells[GetSafeMemoryCellPointer(memoryCellPointer)] = memoryCell;
 
-        public short Size { get => (short)Buffer.Length; }
+        public short Length { get => (short)MemoryCells.Length; }
 
         public override String ToString() {
             StringBuilder stringBuilder = new StringBuilder();
 
-            for (int bufferSpanIndex = 0; bufferSpanIndex < BufferChunkCount; bufferSpanIndex++) {
-                var bufferSpan = new Span<short>(Buffer, (bufferSpanIndex * BufferChunkSize), BufferChunkSize);
-                var array = bufferSpan.ToArray();
-                string hexString = array.ToHexString();
+            for (int memoryCellSpanPointer = 0; memoryCellSpanPointer < MemoryCellsChunkCount; memoryCellSpanPointer++) {
+                var memoryCellSpan = new Span<short>(MemoryCells, (memoryCellSpanPointer * MemoryCellsChunkSize), MemoryCellsChunkSize);
+                var memoryCellArray = memoryCellSpan.ToArray();
+                string hexString = memoryCellArray.ToHexString();
                 stringBuilder.AppendLine(hexString);
             }
 
             return stringBuilder.ToString();
         }
 
-        private short GetSafeBufferIndex(short memoryIndex) => (short)(memoryIndex % Size);
+        private short GetSafeMemoryCellPointer(short memoryCellPointer) => (short)(memoryCellPointer % Length);
     }
 }

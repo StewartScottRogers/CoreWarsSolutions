@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace CoreWars.Engine.Attributes.Library {
+namespace CoreWars.Engine.Attributes {
     internal class SymbolAttribute : Attribute {
 
         /// <summary>

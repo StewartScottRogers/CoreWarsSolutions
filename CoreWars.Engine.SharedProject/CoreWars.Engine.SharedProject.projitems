@@ -19,6 +19,10 @@
     <Compile Include="$(MSBuildThisFileDirectory)Extentions\Exceptions\AssemblerException.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extentions\Exceptions\AssemblerMnemonicFormatExceptionException.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extentions\Exceptions\AssemblerOpcodeTypeUnknownException.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extentions\Exceptions\ProcessorUnplannedExecutionException.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extentions\Exceptions\ProcessorUnplannedException.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extentions\Exceptions\ProcessorOpcodeException.cs" />
+    <Compile Include="..\CoreWars.Engine.SharedProject\Extentions\Exceptions\ProcessorException.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extentions\HexExtentions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Attributes\OpcodeAttribute.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extentions\Exceptions\LinterAddressException.cs" />

@@ -1,7 +1,5 @@
 ﻿using System;
 
-using CoreWars.Engine.Attributes.Library;
-
 namespace CoreWars.Engine.Attributes {
     internal class DirectiveAttribute : SymbolAttribute {
         public DirectiveAttribute(Boolean mnemonicEnabled, String mnemonic, String standard) : base(mnemonicEnabled, mnemonic, standard) {

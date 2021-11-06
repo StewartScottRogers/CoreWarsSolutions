@@ -2,7 +2,6 @@
 using System.Linq;
 using System.Reflection;
 
-using CoreWars.Engine.Attributes.Library;
 using CoreWars.Engine.Enumerations;
 
 namespace CoreWars.Engine.Attributes {

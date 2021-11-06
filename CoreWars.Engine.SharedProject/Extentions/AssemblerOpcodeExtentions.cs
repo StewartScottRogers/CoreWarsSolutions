@@ -9,13 +9,20 @@ namespace CoreWars.Engine.Extentions {
         public static short ToOpcode(this string mnemonic)
             => mnemonic.ToOpcodeType().ToOpcode();
 
-        private static OpcodeTypes ToOpcodeType(this string mnemonic) {
-            try {
-                return (OpcodeTypes)Enum.Parse(typeof(OpcodeTypes), mnemonic);
-            } catch (FormatException) {
-                throw new AssemblerMnemonicFormatExceptionException(mnemonic);
+        public static OpcodeTypes ToOpcodeType(this short memoryCell) {
+            switch (memoryCell) {
+                case 0: return OpcodeTypes.dat;
+                case 1: return OpcodeTypes.mov;
+                case 2: return OpcodeTypes.add;
+                case 3: return OpcodeTypes.sub;
+                case 4: return OpcodeTypes.jmp;
+                case 5: return OpcodeTypes.djz;
+                case 6: return OpcodeTypes.cmp;
+                default:
+                    throw new AssemblerMnemonicFormatExceptionException("");
             }
         }
+
 
         private static short ToOpcode(this OpcodeTypes opcodeType) {
             switch (opcodeType) {
@@ -29,6 +36,14 @@ namespace CoreWars.Engine.Extentions {
 
                 default:
                     throw new AssemblerOpcodeTypeUnknownException(opcodeType);
+            }
+        }
+
+        private static OpcodeTypes ToOpcodeType(this string mnemonic) {
+            try {
+                return (OpcodeTypes)Enum.Parse(typeof(OpcodeTypes), mnemonic);
+            } catch (FormatException) {
+                throw new AssemblerMnemonicFormatExceptionException(mnemonic);
             }
         }
     }
