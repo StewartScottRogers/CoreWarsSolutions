@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 using CoreWars.Engine.Extentions.Exceptions;
 
@@ -21,6 +22,15 @@ namespace CoreWars.Engine {
             } catch (Exception exception) {
                 throw new AssemblerLabledVariableUnplannedException("UnPlanned Exception!", exception);
             }
+        }
+
+        public static IEnumerable<string> ToStrings(this Dictionary<string, string> dictionary) {
+            var collection = new Collection<string>();
+
+            foreach (var kvp in dictionary)
+                collection.Add($"{$"{kvp.Key}:",-20} '{kvp.Value}'");
+
+            return collection;
         }
 
     }

@@ -48,6 +48,24 @@ namespace CoreWars.Engine {
 
             Console.WriteLine();
 
+            Console.WriteLine(new string('-', 80));
+            Console.WriteLine($"Program Name: '{program.Name}' LabeledLineNumbersDictionary.");
+            Console.WriteLine(new string('-', 80));
+            var labeledLineNumbersDictionary = parsedCodeLines.CreateLabeledLineNumbersDictionary();
+            Console.WriteLine(string.Join(Environment.NewLine, labeledLineNumbersDictionary.ToStrings()));
+            Console.WriteLine(new string('=', 80));
+
+            Console.WriteLine();
+
+            Console.WriteLine(new string('-', 80));
+            Console.WriteLine($"Program Name: '{program.Name}' LabledValuePairDictionary.");
+            Console.WriteLine(new string('-', 80));
+            var labledValuePairDictionary = parsedCodeLines.CreateLabledVariableDictionary();
+            Console.WriteLine(string.Join(Environment.NewLine, labledValuePairDictionary.ToStrings()));
+            Console.WriteLine(new string('=', 80));
+
+            Console.WriteLine();
+
         }
 
 
