@@ -12,7 +12,7 @@ namespace CoreWars.Engine.Extentions {
                 = program.Codelines.ParseCodeLines();
 
             var labeledLineNumbersDictionary = parsedCodeLines.CreateLabeledLineNumbersDictionary();
-            var labledValuePairDictionary = parsedCodeLines.CreateLabledValuePairDictionary();
+            var labledValuePairDictionary = parsedCodeLines.CreateLabledVariableDictionary();
 
             foreach (var parsedCodeLine in parsedCodeLines) {
 

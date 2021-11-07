@@ -15,7 +15,11 @@
     <Compile Include="$(MSBuildThisFileDirectory)Attributes\Library\SymbolAttributeExtentions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Enumerations\MnemonicTypes.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extentions\AssemblerExtentions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extentions\Exceptions\AssemblerLabledLineNumberUnplannedException.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extentions\AssemblerLabledVariableExtentions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extentions\AssemblerRegisterExtentions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extentions\AssemblerLabeledLineNumberExtentions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extentions\Exceptions\AssemblerLabledVariableUnplannedException.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extentions\Exceptions\AssemblerException.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extentions\Exceptions\AssemblerMnemonicFormatExceptionException.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extentions\Exceptions\AssemblerOpcodeTypeUnknownException.cs" />

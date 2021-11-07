@@ -21,45 +21,6 @@ namespace CoreWars.Engine {
             }
         }
 
-        public static Dictionary<string, short> CreateLabeledLineNumbersDictionary(this IEnumerable<(short LineNumber, string LineType, string Label, string Command, string ParameterA, string ParameterB)> parsedCodeLines) {
-            var labeledLineNumbersDictionary = new Dictionary<string, short>();
-            try {
-                foreach (var parsedCodeLine in parsedCodeLines) {
-
-                    if (string.IsNullOrWhiteSpace(parsedCodeLine.Label))
-                        continue;
-
-                    if ("label" == parsedCodeLine.LineType) {
-                        if(labeledLineNumbersDictionary.ContainsKey(parsedCodeLine.Label))
-                            labeledLineNumbersDictionary.Remove(parsedCodeLine.Label);
-                        labeledLineNumbersDictionary.Add(parsedCodeLine.Label, parsedCodeLine.LineNumber);
-
-                    }
-                }
-
-                return labeledLineNumbersDictionary;
-            } catch (Exception exception) {
-                throw exception;
-            }
-        }
-
-        public static Dictionary<string, string> CreateLabledValuePairDictionary(this IEnumerable<(short LineNumber, string LineType, string Label, string Command, string ParameterA, string ParameterB)> parsedCodeLines) {
-            var labledValuePairDictionary = new Dictionary<string, string>();
-            try {
-                foreach (var parsedCodeLine in parsedCodeLines)
-                    if ("variable" == parsedCodeLine.LineType)
-                        if ("equ" == parsedCodeLine.Command) {
-                            if (labledValuePairDictionary.ContainsKey(parsedCodeLine.Label))
-                                labledValuePairDictionary.Remove(parsedCodeLine.Label);
-                            labledValuePairDictionary.Add(parsedCodeLine.Label, parsedCodeLine.ParameterA);
-                        }
-
-                return labledValuePairDictionary;
-            } catch (Exception exception) {
-                throw exception;
-            }
-        }
-
         #region Private Methods
         private static IEnumerable<(short lineNumber, string LineType, string line)>
             ProcessCodeLines(this IEnumerable<(short lineNumber, string line)> codeLines) {

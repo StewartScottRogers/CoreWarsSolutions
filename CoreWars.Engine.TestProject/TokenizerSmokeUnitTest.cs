@@ -47,7 +47,7 @@ namespace CoreWars.Engine {
 
             var labeledLineNumbersDictionary = parsedCodeLines.CreateLabeledLineNumbersDictionary();
 
-            var labledValuePairDictionary = parsedCodeLines.CreateLabledValuePairDictionary();
+            var labledValuePairDictionary = parsedCodeLines.CreateLabledVariableDictionary();
 
         }
 
