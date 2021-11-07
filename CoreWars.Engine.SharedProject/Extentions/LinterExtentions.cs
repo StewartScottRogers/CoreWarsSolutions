@@ -17,8 +17,8 @@ namespace CoreWars.Engine {
             = SymbolLibrary.AddressSymbols().ToSymbolsDictionary();
 
 
-        public static IEnumerable<(int LineNumber, string LineType, string Label, string Command, string ParameterA, string ParameterB)>
-            LintCodeLines(this IEnumerable<(int LineNumber, string LineType, string Label, string Command, string ParameterA, string ParameterB)> codeLines) {
+        public static IEnumerable<(short LineNumber, string LineType, string Label, string Command, string ParameterA, string ParameterB)>
+            LintCodeLines(this IEnumerable<(short LineNumber, string LineType, string Label, string Command, string ParameterA, string ParameterB)> codeLines) {
 
             foreach (var codeLine in codeLines) {
 

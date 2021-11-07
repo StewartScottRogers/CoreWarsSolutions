@@ -1,29 +1,69 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace CoreWars.Engine {
     internal static class TokenizerExtentions {
 
-        public static IEnumerable<(int LineNumber, string LineType, string Label, string Command, string ParameterA, string ParameterB)>
-            ParseCodeLines(this IEnumerable<(int lineNumber, string line)> codeLines)
+        public static IEnumerable<(short LineNumber, string LineType, string Label, string Command, string ParameterA, string ParameterB)>
+            ParseCodeLines(this IEnumerable<(short lineNumber, string line)> codeLines)
             => ProcessCodeLine(ProcessCodeLines(codeLines));
 
         public static IEnumerable<string>
-            ToStrings(this IEnumerable<(int LineNumber, string LineType, string Label, string Command, string ParameterA, string ParameterB)> parsedCodeLines) {
+            ToStrings(this IEnumerable<(short LineNumber, string LineType, string Label, string Command, string ParameterA, string ParameterB)> parsedCodeLines) {
 
             yield return $"{"[Type]",-10} {"[####]",-8} {"[Label]",-15} {"[Command]",-15} {"[ParameterA]",-20} {"[ParameterB]",-20}";
 
-            foreach ((int LineNumber, string LineType, string Label, string Command, string ParameterA, string ParameterB) parsedCodeLine in parsedCodeLines) {
+            foreach ((short LineNumber, string LineType, string Label, string Command, string ParameterA, string ParameterB) parsedCodeLine in parsedCodeLines) {
                 string lineNumber = $"{parsedCodeLine.LineNumber:0000}";
                 string text = $"{parsedCodeLine.LineType,-10} {lineNumber,-8} {parsedCodeLine.Label,-15} {parsedCodeLine.Command,-15} {parsedCodeLine.ParameterA,-20} {parsedCodeLine.ParameterB,-20}";
                 yield return text;
             }
         }
 
+        public static Dictionary<string, short> CreateLabeledLineNumbersDictionary(this IEnumerable<(short LineNumber, string LineType, string Label, string Command, string ParameterA, string ParameterB)> parsedCodeLines) {
+            var labeledLineNumbersDictionary = new Dictionary<string, short>();
+            try {
+                foreach (var parsedCodeLine in parsedCodeLines) {
+
+                    if (string.IsNullOrWhiteSpace(parsedCodeLine.Label))
+                        continue;
+
+                    if ("label" == parsedCodeLine.LineType) {
+                        if(labeledLineNumbersDictionary.ContainsKey(parsedCodeLine.Label))
+                            labeledLineNumbersDictionary.Remove(parsedCodeLine.Label);
+                        labeledLineNumbersDictionary.Add(parsedCodeLine.Label, parsedCodeLine.LineNumber);
+
+                    }
+                }
+
+                return labeledLineNumbersDictionary;
+            } catch (Exception exception) {
+                throw exception;
+            }
+        }
+
+        public static Dictionary<string, string> CreateLabledValuePairDictionary(this IEnumerable<(short LineNumber, string LineType, string Label, string Command, string ParameterA, string ParameterB)> parsedCodeLines) {
+            var labledValuePairDictionary = new Dictionary<string, string>();
+            try {
+                foreach (var parsedCodeLine in parsedCodeLines)
+                    if ("variable" == parsedCodeLine.LineType)
+                        if ("equ" == parsedCodeLine.Command) {
+                            if (labledValuePairDictionary.ContainsKey(parsedCodeLine.Label))
+                                labledValuePairDictionary.Remove(parsedCodeLine.Label);
+                            labledValuePairDictionary.Add(parsedCodeLine.Label, parsedCodeLine.ParameterA);
+                        }
+
+                return labledValuePairDictionary;
+            } catch (Exception exception) {
+                throw exception;
+            }
+        }
+
         #region Private Methods
-        private static IEnumerable<(int lineNumber, string LineType, string line)>
-            ProcessCodeLines(this IEnumerable<(int lineNumber, string line)> codeLines) {
-            foreach ((int lineNumber, string line) codeLine in codeLines) {
+        private static IEnumerable<(short lineNumber, string LineType, string line)>
+            ProcessCodeLines(this IEnumerable<(short lineNumber, string line)> codeLines) {
+            foreach ((short lineNumber, string line) codeLine in codeLines) {
                 string line = codeLine.line;
                 string timmedLine = line.Trim();
 
@@ -49,9 +89,9 @@ namespace CoreWars.Engine {
             }
         }
 
-        private static IEnumerable<(int LineNumber, string LineType, string Label, string Command, string ParameterA, string ParameterB)>
-            ProcessCodeLine(this IEnumerable<(int lineNumber, string lineType, string line)> codeLines) {
-            foreach ((int lineNumber, string LineType, string line) codeLine in codeLines) {
+        private static IEnumerable<(short LineNumber, string LineType, string Label, string Command, string ParameterA, string ParameterB)>
+            ProcessCodeLine(this IEnumerable<(short lineNumber, string lineType, string line)> codeLines) {
+            foreach ((short lineNumber, string LineType, string line) codeLine in codeLines) {
 
                 string line = codeLine.line.Replace(",", " ").Replace("\t", "    ");
 

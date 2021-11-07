@@ -16,7 +16,7 @@ namespace CoreWars.Engine {
 
     [TestClass]
     public class TokenizerSmokeUnitTest {
-        private void Display_Loading_And_Tokenizing_Of_RedCode((string Name, string Cotent, IEnumerable<(int lineNumber, string line)> Codelines) program) {
+        private void Display_Loading_And_Tokenizing_Of_RedCode((string Name, string Cotent, IEnumerable<(short lineNumber, string line)> Codelines) program) {
 
             Console.WriteLine(new string('-', 80));
             Console.WriteLine($"Program Name: '{program.Name}' Cotent.");
@@ -29,7 +29,7 @@ namespace CoreWars.Engine {
             Console.WriteLine(new string('-', 80));
             Console.WriteLine($"Program Name: '{program.Name}' Codelines.");
             Console.WriteLine(new string('-', 80));
-            IEnumerable<(int lineNumber, string line)> codelines = program.Codelines;
+            IEnumerable<(short lineNumber, string line)> codelines = program.Codelines;
             Console.WriteLine(string.Join(Environment.NewLine, codelines));
             Console.WriteLine(new string('=', 80));
 
@@ -38,12 +38,16 @@ namespace CoreWars.Engine {
             Console.WriteLine(new string('-', 80));
             Console.WriteLine($"Program Name: '{program.Name}' ParsedCodeLines.");
             Console.WriteLine(new string('-', 80));
-            IEnumerable<(int LineNumber, string LineType, string Label, string Command, string ParameterA, string ParameterB)> parsedCodeLines
+            IEnumerable<(short LineNumber, string LineType, string Label, string Command, string ParameterA, string ParameterB)> parsedCodeLines
                 = codelines.ParseCodeLines();
             Console.WriteLine(string.Join(Environment.NewLine, parsedCodeLines.ToStrings()));
             Console.WriteLine(new string('=', 80));
 
             Console.WriteLine();
+
+            var labeledLineNumbersDictionary = parsedCodeLines.CreateLabeledLineNumbersDictionary();
+
+            var labledValuePairDictionary = parsedCodeLines.CreateLabledValuePairDictionary();
 
         }
 
