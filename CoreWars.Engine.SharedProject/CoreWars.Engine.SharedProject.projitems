@@ -26,6 +26,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Extentions\Exceptions\ProcessorUnplannedExecutionException.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extentions\Exceptions\ProcessorUnplannedException.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extentions\Exceptions\ProcessorOpcodeException.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extentions\ExecutableCodeExtentions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extentions\LinesExtentions.cs" />
     <Compile Include="..\CoreWars.Engine.SharedProject\Extentions\Exceptions\ProcessorException.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extentions\HexExtentions.cs" />

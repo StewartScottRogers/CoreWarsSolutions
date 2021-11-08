@@ -69,13 +69,17 @@ namespace CoreWars.Engine {
 
             Console.WriteLine();
 
+            Console.WriteLine(new string('-', 80));
+            Console.WriteLine($"Program Name: '{program.Name}' AssembleExecutable.");
+            Console.WriteLine(new string('-', 80));
             (string Name, string Cotent, IEnumerable<(short lineNumber, string line)> Codelines) 
                 targetProgram = (name: program.Name, content: program.Content).GetTargetProgram();
-
-
             IEnumerable<Int16> executable = targetProgram.AssembleExecutable();
+            executable.ToDisplay();
+            Console.WriteLine(executable.ToDisplay());
+            Console.WriteLine(new string('=', 80));
 
-
+            Console.WriteLine();
 
 
         }
