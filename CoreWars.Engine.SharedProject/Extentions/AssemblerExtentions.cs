@@ -13,13 +13,17 @@ namespace CoreWars.Engine.Extentions {
             IEnumerable<(short LineNumber, string LineType, string Label, string Command, string ParameterA, string ParameterB)> parsedCodeLines
                 = program.Codelines.ParseCodeLines();
 
+            var assembledOpcodePointers = parsedCodeLines.AssembleOpcodePointers();
 
-            var assembledOpcodePointers = AssembleOpcodePointers(parsedCodeLines);
+
 
             var labeledLineNumbersDictionary = assembledOpcodePointers.CreateLabeledLineNumbersDictionary();
             var labledValuePairDictionary = assembledOpcodePointers.CreateLabledVariableDictionary();
 
+            foreach (var assembledOpcodePointer in assembledOpcodePointers) {
+                var opcodePointer = assembledOpcodePointer.OpcodePointer;
 
+            }
 
 
             yield break;
@@ -33,7 +37,7 @@ namespace CoreWars.Engine.Extentions {
             short opcodePointer = 0;
 
             foreach (var parsedCodeLine in parsedCodeLines) {
-               
+
                 var result = (
                                 OpcodePointer: (short)opcodePointer,
                                 LineNumber: parsedCodeLine.LineNumber,
@@ -46,11 +50,11 @@ namespace CoreWars.Engine.Extentions {
                              );
 
 
-                SymbolAttribute symbolAttribute 
-                    = result.Command.ToOpcode().ToOpcodeType().GetSymbol();   
+                SymbolAttribute symbolAttribute
+                    = result.Command.ToOpcode().ToOpcodeType().GetSymbol();
 
                 opcodePointer++;
-                if(symbolAttribute.ParameterRequiredA)
+                if (symbolAttribute.ParameterRequiredA)
                     opcodePointer++;
                 if (symbolAttribute.ParameterRequiredB)
                     opcodePointer++;
