@@ -7,7 +7,7 @@ using CoreWars.Engine.Extentions.Exceptions;
 namespace CoreWars.Engine {
     internal static class AssemblerLabledVariableExtentions {
 
-        public static Dictionary<string, string> CreateLabledVariableDictionary(this IEnumerable<(short LineNumber, string LineType, string Label, string Command, string ParameterA, string ParameterB)> parsedCodeLines) {
+        public static Dictionary<string, string> CreateLabledVariableDictionary(this IEnumerable<(short OpcodePointer, short LineNumber, string LineType, string Label, string Command, string ParameterA, string ParameterB)> parsedCodeLines) {
             var labledValuePairDictionary = new Dictionary<string, string>();
             try {
                 foreach (var parsedCodeLine in parsedCodeLines)

@@ -8,7 +8,7 @@ namespace CoreWars.Engine.Extentions {
 
         public static IEnumerable<short> Assemble((string Name, string Cotent, IEnumerable<(short lineNumber, string line)> Codelines) program) {
 
-            IEnumerable<(short LineNumber, string LineType, string Label, string Command, string ParameterA, string ParameterB)> parsedCodeLines
+            IEnumerable<(short OpcodePointer, short LineNumber, string LineType, string Label, string Command, string ParameterA, string ParameterB)> parsedCodeLines
                 = program.Codelines.ParseCodeLines();
 
             var labeledLineNumbersDictionary = parsedCodeLines.CreateLabeledLineNumbersDictionary();
