@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 
+using CoreWars.Engine.Extentions;
 using CoreWars.Engine.TokenizerSmokeUnitTestSamples;
 
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -16,6 +17,16 @@ namespace CoreWars.Engine {
 
     [TestClass]
     public class TokenizerSmokeUnitTest {
+
+        /// <summary>
+        /// Provides Tokenizing of a braod sample of Redcode found on the internet.
+        /// 
+        /// Not intended to be assembled into asm code. 
+        /// There will only be a minimul support of the 1988 standared set of opcodes
+        /// for the assembler. These Unit Tests make sure the tokenizer is general perpose.
+        /// 
+        /// </summary>
+        /// <param name="program"></param>
         private void Display_Loading_And_Tokenizing_Of_RedCode((string Name, string Cotent, IEnumerable<(short lineNumber, string line)> Codelines) program) {
 
             Console.WriteLine(new string('-', 80));
@@ -38,27 +49,9 @@ namespace CoreWars.Engine {
             Console.WriteLine(new string('-', 80));
             Console.WriteLine($"Program Name: '{program.Name}' ParsedCodeLines.");
             Console.WriteLine(new string('-', 80));
-            IEnumerable<(short OpcodePointer, short LineNumber, string LineType, string Label, string Command, string ParameterA, string ParameterB)> parsedCodeLines
+            IEnumerable<(short LineNumber, string LineType, string Label, string Command, string ParameterA, string ParameterB)> parsedCodeLines
                 = codelines.ParseCodeLines();
             Console.WriteLine(string.Join(Environment.NewLine, parsedCodeLines.ToStrings()));
-            Console.WriteLine(new string('=', 80));
-
-            Console.WriteLine();
-
-            Console.WriteLine(new string('-', 80));
-            Console.WriteLine($"Program Name: '{program.Name}' LabeledLineNumbersDictionary.");
-            Console.WriteLine(new string('-', 80));
-            var labeledLineNumbersDictionary = parsedCodeLines.CreateLabeledLineNumbersDictionary();
-            Console.WriteLine(string.Join(Environment.NewLine, labeledLineNumbersDictionary.ToStrings()));
-            Console.WriteLine(new string('=', 80));
-
-            Console.WriteLine();
-
-            Console.WriteLine(new string('-', 80));
-            Console.WriteLine($"Program Name: '{program.Name}' LabledValuePairDictionary.");
-            Console.WriteLine(new string('-', 80));
-            var labledValuePairDictionary = parsedCodeLines.CreateLabledVariableDictionary();
-            Console.WriteLine(string.Join(Environment.NewLine, labledValuePairDictionary.ToStrings()));
             Console.WriteLine(new string('=', 80));
 
             Console.WriteLine();

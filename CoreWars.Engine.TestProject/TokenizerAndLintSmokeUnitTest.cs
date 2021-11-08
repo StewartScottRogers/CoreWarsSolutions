@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 
+using CoreWars.Engine.Extentions;
 using CoreWars.Engine.TokenizerAndLintSmokeUnitTestSamples;
 
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -31,7 +32,7 @@ namespace CoreWars.Engine {
             Console.WriteLine(new string('-', 80));
             Console.WriteLine($"Program Name: '{program.Name}' ParsedCodeLines.");
             Console.WriteLine(new string('-', 80));
-            IEnumerable<(short OpcodePointer, short LineNumber, string LineType, string Label, string Command, string ParameterA, string ParameterB)> parsedCodeLines
+            IEnumerable<(short LineNumber, string LineType, string Label, string Command, string ParameterA, string ParameterB)> parsedCodeLines
                 = codelines.ParseCodeLines();
             Console.WriteLine(string.Join(Environment.NewLine, parsedCodeLines.ToStrings()));
             Console.WriteLine(new string('=', 80));
@@ -41,17 +42,19 @@ namespace CoreWars.Engine {
             Console.WriteLine(new string('-', 80));
             Console.WriteLine($"Program Name: '{program.Name}' lintedCodeLines.");
             Console.WriteLine(new string('-', 80));
-            IEnumerable<(short OpcodePointer, short LineNumber, string LineType, string Label, string Command, string ParameterA, string ParameterB)> lintedCodeLines
+            IEnumerable<(short LineNumber, string LineType, string Label, string Command, string ParameterA, string ParameterB)> lintedCodeLines
                = parsedCodeLines.LintCodeLines();
             Console.WriteLine(string.Join(Environment.NewLine, lintedCodeLines.ToStrings()));
             Console.WriteLine(new string('=', 80));
 
             Console.WriteLine();
 
+             var assembledOpcodePointers = parsedCodeLines.AssembleOpcodePointers();
+
             Console.WriteLine(new string('-', 80));
             Console.WriteLine($"Program Name: '{program.Name}' LabeledLineNumbersDictionary.");
             Console.WriteLine(new string('-', 80));
-            var labeledLineNumbersDictionary = parsedCodeLines.CreateLabeledLineNumbersDictionary();
+            var labeledLineNumbersDictionary = assembledOpcodePointers.CreateLabeledLineNumbersDictionary();
             Console.WriteLine(string.Join(Environment.NewLine, labeledLineNumbersDictionary.ToStrings()));
             Console.WriteLine(new string('=', 80));
 
@@ -60,7 +63,7 @@ namespace CoreWars.Engine {
             Console.WriteLine(new string('-', 80));
             Console.WriteLine($"Program Name: '{program.Name}' LabledValuePairDictionary.");
             Console.WriteLine(new string('-', 80));
-            var labledValuePairDictionary = parsedCodeLines.CreateLabledVariableDictionary();
+            var labledValuePairDictionary = assembledOpcodePointers.CreateLabledVariableDictionary();
             Console.WriteLine(string.Join(Environment.NewLine, labledValuePairDictionary.ToStrings()));
             Console.WriteLine(new string('=', 80));
 

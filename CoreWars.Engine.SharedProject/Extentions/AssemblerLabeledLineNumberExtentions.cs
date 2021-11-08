@@ -19,7 +19,7 @@ namespace CoreWars.Engine {
                         if ("equ" != parsedCodeLine.Command) {
                             if (labeledLineNumbersDictionary.ContainsKey(parsedCodeLine.Label))
                                 labeledLineNumbersDictionary.Remove(parsedCodeLine.Label);
-                            labeledLineNumbersDictionary.Add(parsedCodeLine.Label, parsedCodeLine.LineNumber);
+                            labeledLineNumbersDictionary.Add(parsedCodeLine.Label, parsedCodeLine.OpcodePointer);
                         }
                 }
 
@@ -32,8 +32,10 @@ namespace CoreWars.Engine {
         public static IEnumerable<string> ToStrings(this Dictionary<string, short> dictionary) {
             var collection = new Collection<string>();
 
+            collection.Add($"{"[Label]",-20} {"[OpcodePointer]",-20}");
+            collection.Add(new string('-', 80));
             foreach (var kvp in dictionary)
-                collection.Add($"{$"{kvp.Key}:",-20} {kvp.Value:00000}");
+                collection.Add($"{$"{kvp.Key}:",-20} {$"{kvp.Value:00000}",-20}");
 
             return collection;
         }
