@@ -4,11 +4,11 @@ using CoreWars.Engine.Attributes;
 
 namespace CoreWars.Engine.Extentions {
     internal static class AssemblerExtentions {
-        public static (string Name, string Cotent, IEnumerable<(short lineNumber, string line)> Codelines) GetProgram(string programName, string programContent)
-            => (Name: programName, Cotent: programContent, Codelines: programContent.ToLines());
+        public static (string Name, string Cotent, IEnumerable<(short lineNumber, string line)> Codelines) GetTargetProgram(this (string name, string content) targetProgram)
+            => (Name: targetProgram.name, Cotent: targetProgram.content, Codelines: targetProgram.content.ToLines());
 
 
-        public static IEnumerable<short> AssembleExecutable((string Name, string Cotent, IEnumerable<(short lineNumber, string line)> Codelines) program) {
+        public static IEnumerable<short> AssembleExecutable(this (string Name, string Cotent, IEnumerable<(short lineNumber, string line)> Codelines) program) {
 
             IEnumerable<(short LineNumber, string LineType, string Label, string Command, string ParameterA, string ParameterB)> parsedCodeLines
                 = program.Codelines.ParseCodeLines();

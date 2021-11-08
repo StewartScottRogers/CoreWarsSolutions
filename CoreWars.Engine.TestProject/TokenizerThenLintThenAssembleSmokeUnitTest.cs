@@ -10,12 +10,12 @@ namespace CoreWars.Engine {
 
     [TestClass]
     public class TokenizerThenLintThenAssembleSmokeUnitTest {
-        private void Display_Loading_And_Tokenizing_And_Linting_And_Assemble_RedCode((string Name, string Cotent, IEnumerable<(short lineNumber, string line)> Codelines) program) {
+        private void Display_Loading_And_Tokenizing_And_Linting_And_Assemble_RedCode((string Name, string Content, IEnumerable<(short lineNumber, string line)> Codelines) program) {
 
             Console.WriteLine(new string('-', 80));
             Console.WriteLine($"Program Name: '{program.Name}' Cotent.");
             Console.WriteLine(new string('-', 80));
-            Console.WriteLine(program.Cotent);
+            Console.WriteLine(program.Content);
             Console.WriteLine(new string('=', 80));
 
             Console.WriteLine();
@@ -68,6 +68,13 @@ namespace CoreWars.Engine {
             Console.WriteLine(new string('=', 80));
 
             Console.WriteLine();
+
+            (string Name, string Cotent, IEnumerable<(short lineNumber, string line)> Codelines) 
+                targetProgram = (name: program.Name, content: program.Content).GetTargetProgram();
+
+
+            IEnumerable<Int16> executable = targetProgram.AssembleExecutable();
+
 
 
 
