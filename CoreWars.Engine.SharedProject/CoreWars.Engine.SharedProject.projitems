@@ -15,6 +15,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Attributes\Library\SymbolAttributeExtentions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Enumerations\MnemonicTypes.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extentions\AssemblerExtentions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extentions\DictionaryExtentions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extentions\Exceptions\AssemblerLabledLineNumberUnplannedException.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extentions\AssemblerLabledVariableExtentions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extentions\AssemblerRegisterExtentions.cs" />
@@ -27,6 +28,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Extentions\Exceptions\ProcessorUnplannedException.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extentions\Exceptions\ProcessorOpcodeException.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extentions\ExecutableCodeExtentions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extentions\ExpressionExtentions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extentions\LinesExtentions.cs" />
     <Compile Include="..\CoreWars.Engine.SharedProject\Extentions\Exceptions\ProcessorException.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extentions\HexExtentions.cs" />

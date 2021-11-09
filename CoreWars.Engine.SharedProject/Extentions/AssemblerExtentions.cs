@@ -21,7 +21,13 @@ namespace CoreWars.Engine.Extentions {
             var labledValuePairDictionary = assembledOpcodePointers.CreateLabledVariableDictionary();
 
             foreach (var assembledOpcodePointer in assembledOpcodePointers) {
-                var opcodePointer = assembledOpcodePointer.OpcodePointer;
+                short opcodePointer = assembledOpcodePointer.OpcodePointer;
+                short opcode = assembledOpcodePointer.Command.ToOpcode();
+                //var parameterA = assembledOpcodePointer.ParameterA.ToRegister(labeledLineNumbersDictionary);
+                //var parameterB = assembledOpcodePointer.ParameterB.ToRegister(labeledLineNumbersDictionary);  
+
+
+
 
             }
 
