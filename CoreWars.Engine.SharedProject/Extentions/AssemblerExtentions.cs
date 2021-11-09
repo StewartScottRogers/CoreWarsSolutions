@@ -23,8 +23,8 @@ namespace CoreWars.Engine.Extentions {
             foreach (var assembledOpcodePointer in assembledOpcodePointers) {
                 short opcodePointer = assembledOpcodePointer.OpcodePointer;
                 short opcode = assembledOpcodePointer.Command.ToOpcode();
-                //var parameterA = assembledOpcodePointer.ParameterA.ToRegister(labeledLineNumbersDictionary);
-                //var parameterB = assembledOpcodePointer.ParameterB.ToRegister(labeledLineNumbersDictionary);  
+                var parameterA = assembledOpcodePointer.ParameterA.ToRegister(labeledLineNumbersDictionary);
+                var parameterB = assembledOpcodePointer.ParameterB.ToRegister(labeledLineNumbersDictionary);
 
 
 

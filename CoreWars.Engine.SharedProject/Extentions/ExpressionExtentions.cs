@@ -6,17 +6,21 @@ using System.Text;
 namespace CoreWars.Engine.Extentions {
     internal static class ExpressionExtentions {
         public static short Parse(this Dictionary<string, string> labledValuePairDictionary, string expression) {
+            var keys = labledValuePairDictionary.Keys.OrderBy(x => x.Length);
+            foreach (string key in keys)
+                expression = expression.Replace(key, labledValuePairDictionary[key]);
 
-
-
-            return 0;
+            ExpressionParser expressionParser = new ExpressionParser(expression);
+            double evaluation = expressionParser.Parse().Evaluate();
+            short result = Convert.ToInt16(evaluation);
+            return result;
         }
 
-        public class ExpressionParser {
+        private class ExpressionParser {
             private readonly Stack<char> _expression = new Stack<char>();
 
             public ExpressionParser(string expression) {
-                foreach (Char c in expression.Reverse()) 
+                foreach (Char c in expression.Reverse())
                     _expression.Push(c);
             }
 

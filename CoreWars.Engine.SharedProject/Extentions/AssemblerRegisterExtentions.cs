@@ -7,7 +7,8 @@ namespace CoreWars.Engine.Extentions {
                 string value = dictionary[register];
                 return (short) short.Parse(value);  
             }
-            return short.Parse(register); 
+            short result = (short)dictionary.Parse(register);
+            return result;
         }
     }
 }
