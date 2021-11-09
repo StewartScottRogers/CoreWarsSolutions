@@ -1,5 +1,10 @@
 ﻿; Approved ASM Code Samples for Tokenizing and linting.
 ; 
-; Test Name: 
+; Test Name: Dwarf.
 ;
 ;
+ADD #4, 3 ; Adds a literal 4 to the value in the DAT, below, and stores the result there.
+MOV 2, @2
+JMP -2
+DAT #0, #0
+END

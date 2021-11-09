@@ -2,4 +2,13 @@
 ; 
 ; Test Name: 
 ;
-;
+;Here is another program, "Anti.Imp":
+
+			 MOV  #0   -5
+			 CMP  #0   -6
+			 JMP  -1
+			 MOV  #0   -5
+			 MOV  #0   -6
+			 MOV  #0   -7
+			 MOV  #0   -8
+			 JMP  -7
