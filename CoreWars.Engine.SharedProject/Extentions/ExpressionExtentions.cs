@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 using CoreWars.Engine.ExpressionLibrary;
 
@@ -12,9 +11,7 @@ namespace CoreWars.Engine.Extentions {
             foreach (string key in keys)
                 expression = expression.Replace(key, labledValuePairDictionary[key]);
 
-            ExpressionParser expressionParser = new ExpressionParser(expression);
-            double evaluation = expressionParser.Parse().Evaluate();
-            short result = Convert.ToInt16(evaluation);
+            short result = ExpressionParser.Parse(expression);
             return result;
         }  
     }

@@ -4,24 +4,29 @@ using System.Linq;
 using System.Text;
 
 namespace CoreWars.Engine.ExpressionLibrary {
-    internal class ExpressionParser {
-        private readonly Stack<char> _expression = new Stack<char>();
-
-        public ExpressionParser(string expression) {
+    internal  static class ExpressionParser {
+      
+        public static short Parse(string expression) {
+            Stack<char> expressionStack = new Stack<char>();
             foreach (Char c in expression.Reverse())
-                _expression.Push(c);
+                expressionStack.Push(c);
+            IExpression iExpression =  Parse(expressionStack);
+            double result = iExpression.Evaluate();
+            return (short)result;
         }
 
-        public IExpression Parse() {
+
+        #region Private Methods
+        private static IExpression Parse(Stack<char> expressionStack) {
             var left = new Stack<IExpression>();
             var expressionOperands = new Stack<ExpressionOperand>();
             var right = new Stack<IExpression>();
 
-            while (HasMoreChars) {
-                var c = _expression.Peek();
+            while (expressionStack.Any()) {
+                var c = expressionStack.Peek();
 
                 if (char.IsDigit(c)) {
-                    var parameter = ReadParameterExpression();
+                    var parameter = ReadParameterExpression(expressionStack);
                     var expression = ParseParameterExpression(parameter);
                     if (left.Count == right.Count) {
                         left.Push(expression);
@@ -29,26 +34,26 @@ namespace CoreWars.Engine.ExpressionLibrary {
                         right.Push(expression);
                     }
                 } else if (IsOperand(c)) {
-                    var operand = ParseOperand(_expression.Pop());
+                    var operand = ParseOperand(expressionStack.Pop());
 
                     if (right.Any() && (operand == ExpressionOperand.Divide || operand == ExpressionOperand.Multiply)) {
                         left.Push(right.Pop());
                     }
 
                     while (expressionOperands.Any() && left.Any() && right.Any()) {
-                        var expression = new OperationExpression(left.Pop(), expressionOperands.Pop(), right.Pop());
+                        var operationExpression = new OperationExpression(left.Pop(), expressionOperands.Pop(), right.Pop());
 
                         if (left.Count == right.Count) {
-                            left.Push(expression);
+                            left.Push(operationExpression);
                         } else {
-                            right.Push(expression);
+                            right.Push(operationExpression);
                         }
                     }
 
                     expressionOperands.Push(operand);
                 } else if (IsOpeningBracket(c)) {
-                    _expression.Pop();
-                    var expression = Parse();
+                    expressionStack.Pop();
+                    var expression = Parse(expressionStack);
 
                     if (left.Count == right.Count) {
                         left.Push(expression);
@@ -56,21 +61,21 @@ namespace CoreWars.Engine.ExpressionLibrary {
                         right.Push(expression);
                     }
                 } else if (IsClosingBracket(c)) {
-                    _expression.Pop();
+                    expressionStack.Pop();
 
                     while (expressionOperands.Any()) {
-                        var expression = new OperationExpression(left.Pop(), expressionOperands.Pop(), right.Pop());
+                        var operationExpression = new OperationExpression(left.Pop(), expressionOperands.Pop(), right.Pop());
 
                         if (left.Count == right.Count) {
-                            left.Push(expression);
+                            left.Push(operationExpression);
                         } else {
-                            right.Push(expression);
+                            right.Push(operationExpression);
                         }
                     }
 
                     return left.Pop();
                 } else if (char.IsWhiteSpace(c)) {
-                    _expression.Pop();
+                    expressionStack.Pop();
                 } else {
                     throw new NotImplementedException($"Cannot parse char '{c}'");
                 }
@@ -78,31 +83,31 @@ namespace CoreWars.Engine.ExpressionLibrary {
 
 
             while (expressionOperands.Any()) {
-                var expression = new OperationExpression(left.Pop(), expressionOperands.Pop(), right.Pop());
+                var operationExpression = new OperationExpression(left.Pop(), expressionOperands.Pop(), right.Pop());
 
                 if (left.Count == right.Count) {
-                    left.Push(expression);
+                    left.Push(operationExpression);
                 } else {
-                    right.Push(expression);
+                    right.Push(operationExpression);
                 }
             }
 
             return left.Pop();
         }
 
-        internal static bool IsOperand(char c) {
+        private static bool IsOperand(char c) {
             return c == '-' || c == '+' || c == '*' || c == '/';
         }
 
-        internal static bool IsOpeningBracket(char c) {
+        private static bool IsOpeningBracket(char c) {
             return c == '(';
         }
 
-        internal static bool IsClosingBracket(char c) {
+        private static bool IsClosingBracket(char c) {
             return c == ')';
         }
 
-        internal ExpressionOperand ParseOperand(char c) {
+        private static ExpressionOperand ParseOperand(char c) {
             switch (c) {
                 case '-':
                     return ExpressionOperand.Minus;
@@ -117,27 +122,26 @@ namespace CoreWars.Engine.ExpressionLibrary {
             }
         }
 
-        internal string ReadParameterExpression() {
-            var c = _expression.Pop();
-            var expression = new StringBuilder();
-            expression.Append(c);
+        private static string ReadParameterExpression(Stack<char> expressionStack) {
+            var c = expressionStack.Pop();
+            var ctringBuilder = new StringBuilder();
+            ctringBuilder.Append(c);
 
-            while (HasMoreChars) {
-                c = _expression.Peek();
+            while (expressionStack.Any()) {
+                c = expressionStack.Peek();
                 if (char.IsDigit(c) || c == '.') {
-                    c = _expression.Pop();
-                    expression.Append(c);
+                    c = expressionStack.Pop();
+                    ctringBuilder.Append(c);
                 } else {
-                    return expression.ToString();
+                    return ctringBuilder.ToString();
                 }
             }
 
-            return expression.ToString();
+            return ctringBuilder.ToString();
         }
 
-        private bool HasMoreChars => _expression.Any();
 
-        internal IExpression ParseParameterExpression(string expression) {
+        private static IExpression ParseParameterExpression(string expression) {
             double value;
 
             if (!double.TryParse(expression, out value)) {
@@ -146,5 +150,7 @@ namespace CoreWars.Engine.ExpressionLibrary {
 
             return new ParameterExpression(value);
         }
+
+        #endregion
     }
 }
