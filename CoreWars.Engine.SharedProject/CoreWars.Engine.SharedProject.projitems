@@ -14,6 +14,11 @@
     <Compile Include="$(MSBuildThisFileDirectory)Attributes\DirectiveAttribute.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Attributes\Library\SymbolAttributeExtentions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Enumerations\MnemonicTypes.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ExpressionLibrary\ExpressionParser.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ExpressionLibrary\IExpression.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ExpressionLibrary\ExpressionOperand.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ExpressionLibrary\OperationExpression.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ExpressionLibrary\ParameterExpression.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extentions\AssemblerExtentions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extentions\DictionaryExtentions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extentions\Exceptions\AssemblerLabledLineNumberUnplannedException.cs" />
