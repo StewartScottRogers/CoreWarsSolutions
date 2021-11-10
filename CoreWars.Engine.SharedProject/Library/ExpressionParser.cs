@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace CoreWars.Engine.ExpressionLibrary {
-    internal  static class ExpressionParser {
-      
+namespace CoreWars.Engine.Library {
+    internal static class ExpressionParser {
+
         public static short Parse(string expression) {
             Stack<char> expressionStack = new Stack<char>();
             foreach (Char c in expression.Reverse())
                 expressionStack.Push(c);
-            IExpression iExpression =  Parse(expressionStack);
+            IExpression iExpression = Parse(expressionStack);
             double result = iExpression.Evaluate();
             return (short)result;
         }
@@ -152,5 +152,57 @@ namespace CoreWars.Engine.ExpressionLibrary {
         }
 
         #endregion
+
+        #region Private Classes
+        internal interface IExpression {
+            double Evaluate();
+        }
+
+        internal enum ExpressionOperand {
+            Plus,
+            Minus,
+            Multiply,
+            Divide
+        }
+
+        internal class OperationExpression : IExpression {
+            public IExpression Left { get; set; }
+            public IExpression Right { get; set; }
+            public ExpressionOperand Operand { get; }
+
+            public OperationExpression(IExpression left, ExpressionOperand operand, IExpression right) {
+                Operand = operand;
+                Left = left;
+                Right = right;
+            }
+
+            public double Evaluate() {
+                switch (Operand) {
+                    case ExpressionOperand.Plus:
+                        return Left.Evaluate() + Right.Evaluate();
+                    case ExpressionOperand.Minus:
+                        return Left.Evaluate() - Right.Evaluate();
+                    case ExpressionOperand.Multiply:
+                        return Left.Evaluate() * Right.Evaluate();
+                    case ExpressionOperand.Divide:
+                        return Left.Evaluate() / Right.Evaluate();
+                    default:
+                        throw new NotImplementedException("Operation not supported");
+                }
+            }
+        }
+
+        internal class ParameterExpression : IExpression {
+            public double Parameter { get; }
+
+            public ParameterExpression(double parameter) {
+                Parameter = parameter;
+            }
+
+            public double Evaluate() {
+                return Parameter;
+            }
+        }
+        #endregion 
     }
 }
