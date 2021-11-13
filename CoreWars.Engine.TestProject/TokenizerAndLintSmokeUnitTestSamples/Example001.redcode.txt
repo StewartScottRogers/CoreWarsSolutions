@@ -11,6 +11,6 @@
 Bomb	dat	#0,	#-980
 Spacer	equ	28
 Start	mov	Bomb,	@Bomb
-sub	#Spacer,Bomb
-jmp	Start,	#0
-end	Start
+  sub	#Spacer, Bomb
+  jmp	Start,	#0
+  end	Start

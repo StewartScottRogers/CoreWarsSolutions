@@ -1,14 +1,19 @@
 ﻿using System.Collections.Generic;
 
+using CoreWars.Engine.Enumerations;
+
 namespace CoreWars.Engine.Extentions {
     internal static class AssemblerRegisterExtentions {
-        public static short ToRegister(this string register, Dictionary<string, string> dictionary) {
+        public static (AddressTypes AddressType, short Result) ToRegister(this string register, Dictionary<string, string> dictionary) {
             if (dictionary.ContainsKey(register)) {
                 string value = dictionary[register];
-                return (short) short.Parse(value);  
+                short parsedResult = (short)short.Parse(value);
+                return (AddressTypes.Direct, parsedResult);
             }
-            short result = (short)dictionary.Parse(register);
-            return result;
+
+            (AddressTypes AddressType, string Value) = register.ToAddressType();
+            short result = (short)dictionary.Parse(Value);
+            return (AddressType, result);
         }
     }
 }

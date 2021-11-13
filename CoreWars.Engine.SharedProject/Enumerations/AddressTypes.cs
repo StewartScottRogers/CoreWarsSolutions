@@ -8,12 +8,9 @@ namespace CoreWars.Engine.Enumerations {
             mnemonicEnabled: true,
             mnemonic: "",
             standard: "ICWS-88",
-            description: "<Default/None> Direct: The opcode points to a cell relative to the current cell."
+            description: "Direct: The opcode points to a cell relative to the current cell. <Default/None> "
         )]
         Default,
-
-
-
 
         // The ICWS-94 Instruction Set
         [Address(
@@ -25,7 +22,7 @@ namespace CoreWars.Engine.Enumerations {
         Direct,
 
         [Address(
-            mnemonicEnabled: false,
+            mnemonicEnabled: true,
             mnemonic: "#",
             standard: "ICWS-94",
             description: "Immediate: The number is directly in the opcode.",
@@ -34,7 +31,7 @@ namespace CoreWars.Engine.Enumerations {
         Immediate,
 
        
-
+        // NOT YET IMPLEMENTED
         [Address(
             mnemonicEnabled: false,
             mnemonic: "*",

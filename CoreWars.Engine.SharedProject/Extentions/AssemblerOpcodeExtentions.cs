@@ -19,7 +19,7 @@ namespace CoreWars.Engine.Extentions {
                 case 5: return OpcodeTypes.djz;
                 case 6: return OpcodeTypes.cmp;
                 default:
-                    throw new AssemblerMnemonicFormatExceptionException("");
+                    throw new AssemblerOpcodeFormatExceptionException("");
             }
         }
 
@@ -43,7 +43,7 @@ namespace CoreWars.Engine.Extentions {
             try {
                 return (OpcodeTypes)Enum.Parse(typeof(OpcodeTypes), mnemonic);
             } catch (FormatException) {
-                throw new AssemblerMnemonicFormatExceptionException(mnemonic);
+                throw new AssemblerOpcodeFormatExceptionException(mnemonic);
             }
         }
     }
