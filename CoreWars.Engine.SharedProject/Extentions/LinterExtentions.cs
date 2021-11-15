@@ -21,7 +21,6 @@ namespace CoreWars.Engine {
             LintCodeLines(this IEnumerable<(short LineNumber, string LineType, string Label, string Command, string ParameterA, string ParameterB)> codeLines) {
 
             foreach (var codeLine in codeLines) {
-
                 if (DirectiveDictionary.ContainsKey(codeLine.Command)) {
 
                     var symbolDirective = DirectiveDictionary[codeLine.Command];

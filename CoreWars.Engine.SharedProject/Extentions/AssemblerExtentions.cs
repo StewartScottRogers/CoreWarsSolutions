@@ -25,8 +25,11 @@ namespace CoreWars.Engine.Extentions {
                 .ToDictionary(x => x.Key, g => g.First());
 
             foreach (var assembledOpcodePointer in assembledOpcodePointers) {
+                if ("equ" == assembledOpcodePointer.Command)
+                    continue;
+
+                OpcodeTypes opcodeTypes = assembledOpcodePointer.Command.ToOpcodeType();        
                 short opcodePointer = assembledOpcodePointer.OpcodePointer;
-                short opcode = assembledOpcodePointer.Command.ToOpcode();
                 (AddressTypes AddressType, short Result) parameterA = assembledOpcodePointer.ParameterA.ToRegister(mergedDictionaries);
                 (AddressTypes AddressType, short Result) parameterB = assembledOpcodePointer.ParameterB.ToRegister(mergedDictionaries);
 
@@ -47,6 +50,8 @@ namespace CoreWars.Engine.Extentions {
             short opcodePointer = 0;
 
             foreach (var parsedCodeLine in parsedCodeLines) {
+                if ("equ" == parsedCodeLine.Command)
+                    continue;
 
                 var result = (
                                 OpcodePointer: (short)opcodePointer,

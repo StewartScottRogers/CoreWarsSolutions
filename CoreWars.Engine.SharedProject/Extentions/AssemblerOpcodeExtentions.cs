@@ -24,7 +24,7 @@ namespace CoreWars.Engine.Extentions {
         }
 
 
-        private static short ToOpcode(this OpcodeTypes opcodeType) {
+        public static short ToOpcode(this OpcodeTypes opcodeType) {
             switch (opcodeType) {
                 case OpcodeTypes.dat: return 0;
                 case OpcodeTypes.mov: return 1;
@@ -39,7 +39,7 @@ namespace CoreWars.Engine.Extentions {
             }
         }
 
-        private static OpcodeTypes ToOpcodeType(this string mnemonic) {
+        public static OpcodeTypes ToOpcodeType(this string mnemonic) {
             try {
                 return (OpcodeTypes)Enum.Parse(typeof(OpcodeTypes), mnemonic);
             } catch (FormatException) {

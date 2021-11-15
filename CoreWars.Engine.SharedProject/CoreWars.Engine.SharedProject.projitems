@@ -16,6 +16,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Enumerations\MnemonicTypes.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extentions\AssemblerAddressExtentions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extentions\Exceptions\AssemblerAddressExceptionException.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extentions\Exceptions\BaseException.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Library\ExpressionParser.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extentions\AssemblerExtentions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extentions\DictionaryExtentions.cs" />

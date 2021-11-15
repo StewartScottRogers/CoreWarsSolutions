@@ -34,11 +34,27 @@ namespace CoreWars.Engine.Extentions {
                                 return (AddressTypes.Direct, remainingOrDefault);
                             break;
                         }
+
+                    case AddressTypes.IndirectA: {
+                            if (firstOrDefault == symbolAttribute.Mnemonic)
+                                return (AddressTypes.IndirectA, remainingOrDefault);
+                            break;
+                        }
+
+                    case AddressTypes.IndirectB: {
+                            if (firstOrDefault == symbolAttribute.Mnemonic)
+                                return (AddressTypes.IndirectB, remainingOrDefault);
+                            break;
+                        }
                     case AddressTypes.Default: {
                             if (
                                   firstOrDefault != "$"
                                 ||
                                   firstOrDefault != "#"
+                                ||
+                                  firstOrDefault != "*"
+                                ||
+                                  firstOrDefault != "@"
                                 )
                                 break;
 

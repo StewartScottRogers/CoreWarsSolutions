@@ -5,7 +5,7 @@ namespace CoreWars.Engine.Enumerations {
     internal enum DirectiveTypes {
 
         [Directive(
-            mnemonicEnabled: false,
+            mnemonicEnabled: true,
             mnemonic: "EQU",
             parameterRequiredA: true,
             parameterRequiredB: false,

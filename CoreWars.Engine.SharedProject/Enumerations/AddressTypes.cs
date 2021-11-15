@@ -30,10 +30,8 @@ namespace CoreWars.Engine.Enumerations {
         )]
         Immediate,
 
-       
-        // NOT YET IMPLEMENTED
         [Address(
-            mnemonicEnabled: false,
+            mnemonicEnabled: true,
             mnemonic: "*",
             standard: "ICWS-94",
             description: "Indirect: The opcode points to a cell relative to the current cell. That cell's A value is added to the indirect pointer, to provide the target.",
@@ -42,13 +40,16 @@ namespace CoreWars.Engine.Enumerations {
         IndirectA,
 
         [Address(
-            mnemonicEnabled: false,
+            mnemonicEnabled: true,
             mnemonic: "@",
             standard: "ICWS-94",
             description: "Indirect: The opcode points to a cell relative to the current cell. That cell's B value is added to the indirect pointer, to provide the target.",
             example: ""
         )]
         IndirectB,
+
+
+
 
 
 
